@@ -260,3 +260,26 @@ def skin_condition_detail(request, condition_slug):
     }
     # Assuming 'skin_condition_page.html' is your detailed template for a single condition.
     return render(request, 'Skin Conditions.html', context)
+
+from .models import Article # Make sure this import is correct
+
+def article_detail(request, slug):
+    article = get_object_or_404(Article, slug=slug)
+
+    # --- ADD THESE DEBUGGING LINES ---
+    print(f"DEBUG: Type of 'article': {type(article)}")
+    print(f"DEBUG: Content of 'article': {article}")
+    if hasattr(article, 'pk'):
+        print(f"DEBUG: PK of 'article': {article.pk}")
+    else:
+        print("DEBUG: 'article' object has no 'pk' attribute.")
+    # --- END DEBUGGING LINES ---
+
+    related_articles = Article.objects.filter(
+        category=article.category
+    ).exclude(pk=article.pk)[:3]
+
+    return render(request, 'detailed_articles.html', { # Or 'article_detail.html' as per earlier advice
+        'article': article,
+        'related_articles': related_articles
+    })
