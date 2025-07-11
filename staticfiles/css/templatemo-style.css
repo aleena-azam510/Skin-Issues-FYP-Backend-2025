@@ -1,0 +1,3706 @@
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+  body {
+    background: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /*---------------------------------------
+     TYPOGRAPHY              
+  -----------------------------------------*/
+
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: bold;
+    line-height: inherit;
+  }
+
+  h1 {
+    color: #252525;
+    font-size: 3em;
+    line-height: 50px;
+  }
+
+  h2 {
+    color: #353535;
+    font-size: 2em;
+    padding-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+  }
+
+  h3,
+  h3 a {
+    color: #454545;
+  }
+
+  p {
+    color: #757575;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+  }
+
+
+
+  /*---------------------------------------
+     GENERAL               
+  -----------------------------------------*/
+
+  html{
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: #252525;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    text-decoration: none !important;
+  }
+
+  a:hover, a:active, a:focus {
+    color: #ce3232;
+    /* color: #3B7A57  ; */
+    outline: none;
+  }
+
+  ::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: #000000;
+  }
+
+  .section-title {
+    padding-bottom: 40px;
+  }
+
+  .section-title h2 {
+    margin: 0;
+  }
+
+  .section-title h4 {
+    color: #bfbdbd;
+    /* color: yellow; */
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+
+  .overlay {
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  section {
+    position: relative;
+    padding: 100px 0;
+  }
+
+  #team, 
+  #menu,
+  #testimonial {
+    text-align: center;
+  }
+
+  .about-image img,
+  .team-thumb img {
+    width: 100%;
+  }
+  
+  #google-map iframe {
+    border: 0;
+    width: 100%;
+    height: 390px;
+  }
+
+
+  /*---------------------------------------
+     BUTTONS               
+  -----------------------------------------*/
+
+  .section-btn {
+    /* background: #ce3232; */
+    background: #3B7A57;
+    border-radius: 0;
+    border: 0;
+    color: #f9f9f9;
+    font-size: inherit;
+    font-weight: normal;
+    padding: 10px 25px;
+    transition: 0.5s 0.2s;
+  }
+
+
+
+  /*---------------------------------------
+       PRE LOADER              
+  -----------------------------------------*/
+
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background: none repeat scroll 0 0 #ffffff;
+  }
+
+  .spinner {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45px;
+    height: 45px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 1px solid #575757;
+    border-top-color: #ffffff;
+    animation: spinner .9s linear infinite;
+  }
+
+  /* @-webkit-@keyframes spinner  {
+  to {transform: rotate(360deg);}
+} */
+
+  /* @-webkit-keyframes spinner {
+    to { transform: rotate(360deg); }
+    
+    }
+
+
+  @keyframes spinner {
+    to {transform: rotate(360deg);}
+  } */
+
+  @-webkit-keyframes spinner {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spinner {
+    to { transform: rotate(360deg); }
+  }
+
+  /*---------------------------------------
+     NAVBAR             
+  -----------------------------------------*/
+
+  .custom-navbar {
+    border: none;
+    margin-bottom: 0;
+    padding: 25px 0;
+    transition: padding 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Added: Ensure the custom-navbar is a flex container for its content (header + collapse) */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: space-between; /* Spreads out direct children (e.g., container) */
+    flex-wrap: nowrap; /* Prevent wrapping of the entire navbar if content is too wide */
+    width: 100%; /* Ensure it spans full width */
+  }
+  /* Ensure the .container within the navbar is flexible to align header and collapse */
+  .custom-navbar .container {
+    display: flex; /* Make the container a flex container */
+    align-items: center; /* Vertically align items within the container */
+    justify-content: space-between; /* Pushes content to edges (navbar-header and navbar-collapse) */
+    width: 100%; /* Ensure container takes full width */
+    min-height: 50px; /* Optional: Set a minimum height if navbar seems too short */
+    flex-wrap: nowrap; /* Prevent internal wrapping of header/collapse */
+  }
+  .custom-navbar .navbar-brand {
+    color: #ffffff;
+    /* background: #3B7A57; */
+    font-size: 18px;
+    font-weight: bold;
+    position: relative; /* Essential for 'top' property to work */
+    top: -5px; /* <<< ADJUST THIS VALUE. Start with -15px, then try -20px, -25px, etc., until it looks right. */
+    margin-bottom: 0; /*
+  }
+
+  .custom-navbar .navbar-brand span {
+    color: #ce3232;
+    /* color: #3B7A57; */
+    
+  }
+
+  .top-nav-collapse {
+    background: #ffffff;
+  }
+
+  .custom-navbar .navbar-nav.navbar-nav-first {
+    margin-left: 8em;
+  }
+
+  .custom-navbar .navbar-nav.navbar-right li a {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .custom-navbar .navbar-nav.navbar-right .section-btn {
+    display: inline-block;
+    margin: 0.2em 0 0 1em;
+  }
+  .custom-navbar .navbar-nav.navbar-right .section-btn a {
+    padding: 10px 25px;
+    color: #ffffff; /* White text */
+    background-color: #3B7A57; /* Green background */
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block; /* Key for button-like behavior and width */
+    white-space: nowrap; /* Prevent text from wrapping by default */
+    box-sizing: border-box;
+    font-weight: bold;
+    display: flex; /* Make the anchor a flex item */
+    align-items: center; /* Vertically center text within the button */
+    transition: background-color 0.3s ease;
+    height: auto; /* Allow button height to be driven by padding */
+    line-height: 1; /* Helps with vertical alignment of text */
+}
+
+  .custom-navbar .navbar-nav.navbar-right .section-btn:hover {
+    background: #d66306;
+    color: #ffffff;
+  }
+
+  .custom-navbar .navbar-nav.navbar-right .section-btn:focus {
+    color: #ffffff;
+  }
+
+
+  .custom-navbar .nav .section-btn a:hover {
+    color: #ffffff;
+  }
+
+  .custom-navbar .nav li a {
+    font-size: 12px;
+    font-weight: bold;
+    /* color: #ffffff; */
+    padding-right: 22px;
+    padding-left: 22px;
+    text-transform: uppercase;
+  }
+
+  .custom-navbar .nav li a:hover {
+    background: transparent;
+    /* color: #ce3232; */
+    /* color: #3B7A57; */
+
+  }
+
+  .custom-navbar .navbar-nav > li > a:hover,
+  .custom-navbar .navbar-nav > li > a:focus {
+    /* background-color: red; */
+    color: #3B7A57;
+  }
+
+  .custom-navbar .nav li.active > a {
+    background-color: transparent;
+    color: #ce3232;
+  }
+
+  .custom-navbar .navbar-toggle {
+    border: none;
+    padding-top: 10px;
+  }
+
+  .custom-navbar .navbar-toggle {
+    background-color: transparent;
+  }
+
+  .custom-navbar .navbar-toggle .icon-bar {
+    background: #252525;
+    border-color: transparent;
+  }
+
+  @media(min-width:768px) {
+    .custom-navbar {
+      border-bottom: 0;
+      background: 0 0; 
+    }
+
+    .custom-navbar.top-nav-collapse {
+      background: #ffffff;
+      -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      padding: 12px 0;
+    }
+
+    .top-nav-collapse .navbar-brand {
+      color: #454545;
+    }
+
+    .top-nav-collapse .nav li  {
+      color: #575757;
+    }
+    .top-nav-collapse .nav  a .section-btn {
+      color: #fff9f9;
+    }
+  }
+  @media (max-width:767px) {
+    .custom-navbar .navbar-nav.navbar-right .section-btn  {
+    padding: 10px 25px;
+    color: #ffffff; /* White text */
+    background-color: #3B7A57; /* Green background */
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block; /* Key for button-like behavior and width */
+    white-space: nowrap; /* Prevent text from wrapping by default */
+    box-sizing: border-box;
+    width: auto; /* Allow width to adjust to content */
+    min-width: 120px; /* Keep a minimum width for consistency */
+    text-align: center; /* Center text within the button */
+}
+    
+  }
+
+  /* --- STRICTLY NEW STYLES FOR DROPDOWN AND LOGOUT BUTTON --- */
+
+/* Parent li for the dropdown (e.g., the <li> containing "Hello, Username") */
+.custom-navbar .navbar-nav.navbar-right .dropdown {
+    position: relative; /* Essential for the absolute positioning of the dropdown menu */
+    /* This li container should align horizontally with other <li> items in navbar-right.
+        Your existing .navbar-nav.navbar-right li a handles general padding for all list items.
+        We just need to make sure the content inside this <li> aligns well. */
+    display: flex; /* Use flexbox for vertical alignment of 'Hello, Username' and caret */
+    align-items: center; /* Vertically center content within the li */
+    /* No padding, font, or color changes here; it inherits from existing rules. */
+}
+
+/* Style for the "Hello, Username" link (the dropdown toggle) */
+.custom-navbar .navbar-nav.navbar-right .dropdown > a.dropdown-toggle {
+    /* This targets the specific link that acts as the dropdown trigger. */
+    /* It will inherit font-size, font-weight, text-transform, padding, and color
+        from your existing '.custom-navbar .nav li a' rules. */
+    display: flex;         /* Allows aligning text and caret */
+    align-items: center;   /* Vertically centers the text and caret */
+    height: 100%;          /* Makes the link take the full height of its parent li */
+    /* The hover color will come from your existing '.custom-navbar .navbar-nav > li > a:hover' */
+}
+
+/* Style for the caret icon (the small arrow next to the username) */
+.custom-navbar .navbar-nav.navbar-right .dropdown .caret {
+    display: inline-block; /* Make sure the caret is visible */
+    width: 0;
+    height: 0;
+    margin-left: 2px; /* Small space between username and caret */
+    vertical-align: middle; /* Aligns the caret vertically with the text */
+    border-top: 4px solid; /* Default caret size for pointing down */
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-bottom: 0;
+    color: #ffffff; /* Default color for the caret (matches top-level nav links) */
+}
+
+/* Color for caret icon when navbar is collapsed/scrolled */
+.top-nav-collapse .navbar-nav.navbar-right .dropdown .caret {
+    color: #575757; /* Matches .top-nav-collapse .nav li a color for consistency */
+}
+
+/* Styling for the dropdown menu container (the white box that drops down) */
+.custom-navbar .navbar-nav.navbar-right .dropdown-menu {
+    background-color: #ffffff; /* White background for the menu */
+    border: 1px solid rgba(0, 0, 0, 0.15); /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); /* Soft shadow */
+    min-width: 160px; /* Minimum width for the dropdown menu */
+    padding: 5px 0; /* Vertical padding inside the menu */
+    margin-top: 5px; /* Space below the toggle before the menu appears */
+    position: absolute; /* Crucial for positioning relative to the parent .dropdown li */
+    left: auto; /* Ensures no unintended left offset */
+    right: 0; /* Aligns the dropdown menu to the right of its toggle */
+    z-index: 1000; /* Ensures it's on top of other content */
+    display: none; /* Hidden by default; Bootstrap JS will change this to 'block' */
+    float: left; /* Needed for proper Bootstrap dropdown behavior */
+    list-style: none; /* Removes default list bullets */
+    text-align: left; /* Aligns text within the dropdown menu to the left */
+}
+
+/* Make sure the dropdown menu is visible when Bootstrap's 'open' class is active on the parent li */
+.custom-navbar .navbar-nav.navbar-right .dropdown.open .dropdown-menu {
+    display: block;
+}
+
+/* Style for individual links *within* the dropdown menu (e.g., 'Logout' link) */
+.custom-navbar .navbar-nav.navbar-right .dropdown-menu li a  {
+    /* These styles are crucial for making 'Logout' look like a standard dropdown item */
+    color: #575757; /* Darker text for dropdown items (standard for dropdown menus) */
+    padding: 10px 20px; /* Padding for readability within the dropdown */
+    font-size: 13px; /* Slightly larger font than main nav links (common for dropdown items) */
+    font-weight: normal; /* **CRUCIAL: Overrides bold inherited from main nav links** */
+    text-transform: none; /* **CRUCIAL: Overrides uppercase inherited from main nav links** */
+    white-space: nowrap; /* Prevents text from wrapping within the narrow dropdown */
+    display: block; /* Makes the entire area of the list item clickable */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+}
+.custom-navbar .navbar-nav.navbar-right .dropdown-menu a .section-btn {
+    color: white;
+}
+
+
+/* Hover state for dropdown menu links (e.g., 'Logout' link) */
+.custom-navbar .navbar-nav.navbar-right .dropdown-menu li a:hover,
+.custom-navbar .navbar-nav.navbar-right .dropdown-menu li a:focus {
+    background-color: #f5f5f5; /* Light grey background on hover */
+    color: #3B7A57; /* Your brand green text on hover */
+}
+
+
+
+  /*---------------------------------------
+      HOME              
+  -----------------------------------------*/
+
+  #home {
+    padding: 0;
+  }
+
+  #home h1 {
+    color: #ffffff;
+    padding-bottom: 30px;
+  }
+
+  #home h3 {
+    color: #f9f9f9;
+    font-size: 14px;
+    line-height: inherit;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .slider .col-md-8 {
+      padding-left: 0;
+    }
+  }
+
+  .slider .owl-dots {
+    position: absolute;
+    top: 50%;
+    right: 2em;
+    justify-content: center;
+  }
+
+  .owl-theme .owl-dots .owl-dot {
+    display: block;
+  }
+
+  .owl-theme .owl-dots .owl-dot span {
+    width: 12px;
+    height: 12px;
+    margin: 7px 10px;
+    border: 2px solid #d9d9d9;
+    background: transparent;
+    display: block;
+    -webkit-backface-visibility: visible;
+    transition: opacity 200ms ease;
+    border-radius: 30px;
+  }
+
+  .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background-color: #ffffff;
+    border-color: transparent;
+  }
+
+  .slider .caption {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    background-color: rgba(20,20,20,0.2);
+    height: 100%;
+    color: #fff;
+    cursor: e-resize;
+    padding: 4em 0 0 2em;
+  }
+
+  .slider .item {
+    background-position: inherit;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+    height: 650px;
+  }
+
+  .slider .item-first {
+    background-image: url(../images/slider-image1.jpg);
+  }
+
+  .slider .item-second {
+    background-image: url(../images/slider-image2.jpg);
+  }
+
+  .slider .item-third {
+    background-image: url(../images/banner-3.jpg);
+  }
+
+  .slider .item-second .section-btn {
+    /* background: #292929; */
+    background: #3B7A57;
+  }
+
+  .slider .item-second .section-btn:hover {
+    /* background: #ffffff; */
+    background: #3B7A57;
+
+  }
+
+  .slider .item-third .section-btn {
+    /* background: transparent; */
+    /* border: 1px solid #ffffff; */
+    background: #3B7A57;
+  }
+
+  .slider .item-third .section-btn:hover,
+  .slider .item-third .section-btn:focus,
+  .slider .item-second .section-btn:hover,
+  .slider .item-first .section-btn:hover {
+    /* background: #ce3232; */
+    background: #d66306;
+    border-color: transparent;
+    color: #ffffff;
+  }
+
+
+
+  /*---------------------------------------
+      ABOUT              
+  -----------------------------------------*/
+
+  #about {
+    padding-bottom: 0;
+  }
+
+  .about-info {
+    padding: 0 6em 5em 0;
+  }
+
+  .about-info .section-title {
+    padding-bottom: 20px;
+  }
+
+  .about-image {
+    position: absolute;
+  }
+/* Variables for easy color theme changes */
+
+
+  /*---------------------------------------
+      TEAM              
+  -----------------------------------------*/
+
+  #team {
+    background: #f9f9f9;
+  }
+
+  .team-thumb {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .team-info {
+    padding: 10px 30px 20px 30px;
+  }
+
+  .team-thumb .team-hover {
+    position: absolute;
+    background: #1c1c1c;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 0.5s 0.2s;
+  }
+
+  .team-thumb:hover .team-hover {
+    opacity: 0.95;
+    transition-delay: 0.3s;
+    transform: translateY(0);
+  }
+
+  .team-thumb img {
+    transition: 0.5s 0.2s;
+  }
+
+  .team-thumb:hover img {
+    transform: scale(1.2);
+  }
+
+  .team-thumb .social-icon li a {
+    background: #292929;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    color: #d9d9d9;
+    font-size: 20px;
+    margin: 15px 5px 0 5px;
+  }
+
+  .team-thumb .team-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+
+  .team-item h4 {
+    color: #ffffff;
+  }
+
+  .team-info p {
+    color: #bfbdbd;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+
+
+  /*---------------------------------------
+    GALLERY             
+  -----------------------------------------*/
+
+  /* Gallery Section */
+:root {
+    --color-white: #ffffff;
+    --color-light-white: #fefefe;
+    --color-very-light-green: #f8fcf9;
+    --color-light-green: #eaf7f2;
+    --color-primary-green: #3B7A57;
+    --color-dark-green: #2a5c44;
+    --color-accent-orange: #FFA500;
+    --color-dark-orange: #cc8400;
+    --color-text-dark: #333;
+    --color-text-medium: #555;
+    --color-text-light: #888;
+    --color-border-light: #e0e0e0;
+    --color-border-dashed: #e9e9e9;
+    --color-danger: #dc3545;
+    /* Explicitly define card colors based on your screenshot and previous context */
+    --card-bg-light: #cfddc2; /* Color of the card content area in the screenshot */
+    --card-bg-dark: #A2D9A2; /* Main card background color in the screenshot (the top part) */
+    --card-text-color: #000000; /* Text color for card title/description */
+    --card-title-color: #000000; /* Title color */
+    --button-bg: #218838; /* Button background color in screenshot */
+    --button-hover-bg: #68bc7c; /* Button hover color from previous conversation */
+    --button-text-color: #ffffff; /* Button text color in screenshot */
+    --section-title-color: #4f4f4f; /* Color for the section titles */
+}
+
+/* --- Section Styling --- */
+#skin-conditions-gallery {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: var(--color-very-light-green); /* Example: a subtle background for the entire section */
+}
+
+#skin-conditions-gallery .container {
+    width: 100%;
+    max-width: 1200px; /* Adjust max-width of container if your layout is wider/narrower */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Enable flexbox on the row to make child columns equal height */
+#skin-conditions-gallery .row {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to wrap to the next line */
+}
+
+/* Make the Bootstrap column itself a flex container */
+/* This is crucial for making the .gallery-item.card inside it take full height */
+#skin-conditions-gallery .col-lg-3,
+#skin-conditions-gallery .col-md-4,
+#skin-conditions-gallery .col-sm-6,
+#skin-conditions-gallery .col-xs-12 {
+    padding: 15px; /* Adds consistent spacing around each card */
+    display: flex; /* Makes the column a flex item, allowing its child to be 100% height */
+}
+
+/* Gallery Item (Card) Styling */
+.gallery-item.card {
+    background-color: var( --button-text-color); /* Main background color for the card */
+    overflow: hidden; /* Ensures content stays within rounded corners */
+    position: relative;
+    width: 100%; /* IMPORTANT: Card takes full width of its responsive column */
+    margin-bottom: 0; /* Remove default margin as padding on col handles spacing */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    display: flex; /* Flex container for image and content */
+    flex-direction: column; /* Stack image and content vertically */
+    height: 100%; /* CRITICAL: Makes cards equal height within their flex row */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+}
+
+.gallery-item.card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
+}
+
+.gallery-item.card a {
+    text-decoration: none; /* Remove underline from image link */
+    color: inherit; /* Inherit color, though not directly visible on image link */
+}
+
+.gallery-item.card img {
+    width: 100%; /* Image fills the width of its container */
+    display: block;
+    height: 200px; /* FIXED IMAGE HEIGHT: As requested and visually observed in screenshot */
+    object-fit: cover; /* Crops image to cover the area without distortion */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+.gallery-item.card:hover img {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+.card-content a.btn.btn-primary.card-button{
+  color: white;
+}
+
+/* Card Content Styling */
+.card-content {
+    padding: 20px;
+    color: var(--card-text-color); /* Text color for general content */
+    flex-grow: 1; /* Allows this content area to expand and take available vertical space */
+    display: flex; /* Make content area a flex container */
+    flex-direction: column; /* Stack title, text, and button vertically */
+    justify-content: space-between; /* Distributes space, pushing the button to the bottom */
+    background-color: var(--card-bg-light); /* Background color for the text content part of the card */
+    border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+}
+
+.card-content a {
+    color: var(--button-text-color); /* Ensure specific link color if needed within content */
+}
+
+.card-content .card-title { /* This targets the h3 in your HTML */
+    margin-top: 0;
+    /* font-size: 24px; -- REMOVED: Per your request to not change h3 font size */
+    margin-bottom: 10px;
+    color: var(--card-title-color); /* Title color */
+    font-weight: 700; /* Make titles bold */
+}
+
+.card-content .card-text {
+    color: var(--card-text-color); /* Description text color */
+    font-size: 14px; /* Maintain font size as seen */
+    line-height: 1.6;
+    margin-bottom: 20px; /* Space before the button */
+    flex-grow: 1; /* Allows this paragraph to grow and push the button down */
+}
+
+/* Button Styling */
+.card-button {
+    display: inline-flex; /* Use inline-flex for better alignment of button content */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--button-bg); /* Button background color */
+    color: white; /* Button text color (white as per screenshot) */
+    text-decoration: none;
+    border-radius: 25px; /* More rounded button */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap; /* Prevent button text from wrapping */
+    align-self: flex-start; /* Aligns the button to the left within its flex container */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-weight: 600; /* Make button text bolder */
+}
+
+.card-button:hover {
+    background-color: var(--button-hover-bg); /* Button hover color */
+    color: white; /* Ensure text color remains white on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1199.98px) {
+    /* Adjustments for large desktops (if needed for .col-lg-3) */
+}
+
+@media (max-width: 991.98px) { /* Medium devices (tablets, small desktops) */
+    .gallery-item.card img {
+        height: 180px; /* Adjust image height for tablets */
+    }
+    .card-content .card-title {
+        /* font-size: 22px; -- REMOVED for h3 */
+    }
+    .card-content .card-text {
+        font-size: 13.5px;
+    }
+   
+}
+
+@media (max-width: 767.98px) { /* Small devices (portrait tablets, large phones) */
+    .gallery-item.card img {
+        height: 160px; /* Further adjust image height for smaller screens */
+    }
+    .card-content {
+        padding: 15px;
+    }
+    .card-content .card-title {
+        /* font-size: 20px; -- REMOVED for h3 */
+    }
+    .card-content .card-text {
+        font-size: 13px;
+    }
+    .card-button {
+        padding: 9px 18px;
+        font-size: 0.9em;
+    }
+    
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (phones) */
+    /* On extra small screens, columns typically stack. Re-add vertical margin. */
+    #skin-conditions-gallery .col-lg-3,
+    #skin-conditions-gallery .col-md-4,
+    #skin-conditions-gallery .col-sm-6,
+    #skin-conditions-gallery .col-xs-12 {
+        padding: 10px; /* Reduced padding for very small screens */
+        margin-bottom: 15px; /* Add margin between stacked cards */
+    }
+    .gallery-item.card {
+        margin-bottom: 0; /* Reset margin on the card itself */
+    }
+    .gallery-item.card img {
+        height: 140px; /* Further adjust image height for smallest phones */
+    }
+    .card-content {
+        padding: 12px;
+    }
+    .card-content .card-title {
+        /* font-size: 18px; -- REMOVED for h3 */
+        margin-bottom: 8px;
+    }
+    .card-content .card-text {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+    .card-button {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+    
+}
+
+
+
+  /*---------------------------------------
+      TESTIMONIAL             
+  -----------------------------------------*/
+
+  #testimonial {
+    background: url('../images/register.jpg') center center no-repeat;
+    background-size: cover;
+  }
+
+  #testimonial .owl-dots {
+    position: relative;
+    top: 0;
+    right: 0;
+    justify-content: center;
+  }
+
+  #testimonial .owl-theme .owl-dots .owl-dot,
+  #testimonial .owl-theme .owl-dots .owl-dot span {
+    display: inline-block;
+  }
+
+  #testimonial .owl-theme .owl-dots .owl-dot span {
+    margin: 20px 5px;
+  }
+
+  #testimonial h2 {
+    color: #ffffff;
+  }
+
+  #testimonial p,
+  .tst-author h4,
+  .tst-author span {
+    display: inline;
+  }
+
+  #testimonial p {
+    color: #d9d9d9;
+    font-size: 20px;
+    line-height: 35px;
+  }
+
+  .tst-author {
+    margin-top: 20px;
+  }
+
+  .tst-author h4,
+  .tst-author span {
+    color: #b2b2b2;
+  }
+
+  .tst-author span {
+    margin-left: 5px;
+  }
+
+
+  /*---------------------------------------
+      CONTACT             
+  -----------------------------------------*/
+
+  #contact .section-title {
+    padding-bottom: 0;
+  }
+
+  #contact .text-success,
+  #contact .text-danger {
+    display: none;
+  }
+
+  #contact .form-control {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #dddddd;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 15px;
+    transition: all ease-in-out 0.4s;
+  }
+
+  #contact .form-control:hover,
+  #contact .form-control:focus {
+    border-bottom-color: #c9c9c9;
+  }
+
+  #contact input {
+    height: 55px;
+  }
+
+  #contact button#cf-submit {
+    /* background: #ce3232; */
+    background-color: #3B7A57;
+    
+    border-radius: 0;
+    border: 0;
+    color: #ffffff;
+    font-weight: bold;
+    height: 50px;
+  }
+
+  #contact button#cf-submit:hover {
+    background: #292929;
+    color: #ffffff;
+  }
+
+
+
+
+  /*---------------------------------------
+     FOOTER              
+  -----------------------------------------*/
+
+  footer {
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 120px 0;
+    padding-bottom: 80px;
+  }
+
+  footer .section-title {
+    padding-bottom: 10px;
+  }
+
+  footer h2 {
+    font-size: 20px;
+  }
+
+  footer a,
+  footer p {
+    color: #909090;
+  }
+
+  footer strong {
+    color: #d9d9d9;
+  }
+
+  footer address p {
+    margin-bottom: 0;
+  }
+
+  .footer-info,
+  footer .social-icon {
+    margin-top: 20px;
+  }
+
+  .footer-open-hour {
+    background: #ce3232;
+    background: url('../images/240_F_1404157016_PHrIJf1ESS6y5f0CYurjGaZLdsi7oI9d.webp') center center no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    margin-top: 0;
+    padding: 40px 0 40px 80px;
+    overflow: hidden;
+    position: relative;
+    z-index: 22;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .footer-open-hour::after {
+    background: rgba(29,29,29,0.85);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2222;
+  }
+
+  .footer-open-hour h2 {
+    color: #ffffff;
+  }
+
+  .footer-open-hour p {
+    color: #d9d9d9;
+  }
+
+  .footer-open-hour strong {
+    color: #f9f9f9;
+  }
+
+
+
+  /*---------------------------------------
+     SOCIAL ICON              
+  -----------------------------------------*/
+
+  .social-icon {
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+
+  .social-icon li {
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 5px;
+  }
+
+  .social-icon li a {
+    border-radius: 100px;
+    /* color: #ce3232; */
+    color: #3B7A57;
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+  }
+
+  .social-icon li a:hover {
+    /* background: #ce3232; */
+    background: #3B7A57;
+    color: #ffffff;
+  }
+
+
+
+  /*---------------------------------------
+     RESPONSIVE STYLES              
+  -----------------------------------------*/
+
+  @media screen and (max-width: 1170px) {
+    .custom-navbar .navbar-nav.navbar-nav-first {
+      margin-left: inherit;
+    }
+  }
+
+
+  @media only screen and (max-width: 1200px) {
+    .about-info {
+      padding-right: 0;
+    }
+
+    .about-image {
+      position: relative;
+    }
+  }
+
+
+  @media only screen and (max-width: 992px) {
+    section {
+      padding: 60px 0;
+    }
+
+    .custom-navbar .section-btn {
+      margin-left: 1em;
+    }
+
+    .slider .item {
+      background-position: center;
+    }
+
+    .about-info {
+      padding: 0;
+    }
+
+    .team-info {
+      margin-bottom: 50px;
+    }
+
+    #menu .menu-thumb {
+      width: 103%;
+    }
+
+    #testimonial {
+      background-position: 50% 0 !important;
+    }
+
+    #google-map,
+    .footer-info {
+      margin-bottom: 50px;
+    }
+  }
+
+
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .custom-navbar .nav li a {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    h1 {
+      font-size: 2.5em;
+    }
+
+    h1,h2,h3 {
+      line-height: normal;
+    }
+
+    .custom-navbar {
+      background: #ffffff;
+      -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .custom-navbar .nav li a {
+      line-height: normal;
+      padding: 10px;
+    }
+
+    .custom-navbar .navbar-brand,
+    .top-nav-collapse .navbar-brand {
+      color: #252525;
+      font-weight: 600;
+    }
+
+    .custom-navbar .nav li a,
+    .top-nav-collapse .nav li a {
+      color: #575757;
+    }
+
+    .custom-navbar .navbar-nav.navbar-right li {
+      display: inline-block;
+    }
+
+    .custom-navbar .navbar-nav.navbar-right .section-btn {
+      display: block !important;
+      width: 50%;
+      margin: 10px auto 10px auto;
+      padding: 10px;
+    }
+
+    .custom-navbar .section-btn a {
+      color: #ffffff !important;
+    }
+
+    .slider .caption {
+      padding: 0;
+    }
+
+    .menu-thumb .menu-info {
+      top: 80%;
+    }
+
+    footer {
+      padding: 60px 0;
+      padding-bottom: 60px;
+    }
+
+    .footer-open-hour {
+      right: 0;
+      bottom: 0;
+      margin-top: 30px;
+    }
+  }
+
+
+  @media only screen and (max-width: 580px) {
+    h1 {
+      font-size: 2.1em;
+    }
+
+    h2 {
+      font-size: 1.8em;
+    }
+
+    .menu-thumb .menu-info {
+      top: 60%;
+    }
+  }
+
+
+
+ /*---------------------------------------
+     ARTICLES              
+-----------------------------------------*/
+#articles .menu-thumb {
+  background: #ffffff;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+
+#articles .articles-content {
+  position: relative;
+  z-index: 2;
+}
+
+#articles .category {
+  /* color: #ce3232; */
+  color: #3B7A57;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#articles h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #454545;
+}
+
+#articles .article-meta {
+  color: #bfbdbd;
+  font-size: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#articles .section-btn {
+  margin-top: 25px;
+  padding: 8px 25px;
+  font-size: 12px;
+}
+
+/* Hover Effects */
+#articles .menu-thumb:hover {
+  transform: translateY(-10px);
+}
+
+#articles .menu-thumb:hover h3 {
+  /* color: #ce3232; */
+  color: #3B7A57;
+}
+
+
+
+/* ------------------------------
+card 
+------------------------------ */
+
+/* General Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Section Styling */
+.card-section {
+  padding: 40px 20px;
+}
+
+/* Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Card */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #1a202c;
+}
+
+.card p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.card ul li {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* Icon Box */
+.icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #fff;
+}
+
+/* Themed Icon Colors */
+.icon-blue {
+  background-color: #3182ce;
+}
+
+.icon-yellow {
+  background-color: #f6ad55;
+}
+
+.icon-green {
+  background-color: #48bb78;
+}
+
+.icon-purple {
+  background-color: #9f7aea;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .card {
+    padding: 20px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p,
+  .card ul li {
+    font-size: 14px;
+  }
+}
+
+/* ---------------------------------
+      why-ai-dermatologist
+ ---------------------------------*/
+
+.why-ai-dermatologist {
+  padding: 60px 20px;
+  /* background-color: #f9f9f9; */
+  background-color: #2fb84f28;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.why-ai-dermatologist .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.why-ai-dermatologist h2 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #0c1c48;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.why-ai-dermatologist h2 .highlight {
+  color: #3B7A57; 
+}
+
+.why-ai-dermatologist .subtitle {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.why-ai-dermatologist .features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.why-ai-dermatologist ul {
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.why-ai-dermatologist li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #0c1c48;
+  line-height: 1.7;
+}
+
+.why-ai-dermatologist li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #28a745;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ------------------
+ Blog Card or Title
+------------------*/
+
+    /* Global reset only for this component */
+  .herbal-skin-component * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  /* Component container with unique namespace */
+  .herbal-skin-component {
+      font-family: 'Manrope', sans-serif;
+      background: linear-gradient(135deg, #f0f9f0 0%, #e4f5e4 100%);
+      padding: 60px 20px;
+      color: #2c3e30;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .herbal-skin-container {
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+  }
+  
+  .herbal-skin-header {
+      margin-bottom: 50px;
+      position: relative;
+  }
+  
+  .herbal-leaf-decoration {
+      position: absolute;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events: none;
+  }
+  
+  .herbal-leaf-1 {
+      top: -30px;
+      left: 10%;
+      font-size: 8rem;
+      transform: rotate(-15deg);
+      color: #2e7d32;
+  }
+  
+  .herbal-leaf-2 {
+      bottom: -40px;
+      right: 12%;
+      font-size: 6rem;
+      transform: rotate(25deg);
+      color: #388e3c;
+  }
+  
+  .herbal-main-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #1b5e20 0%, #4caf50 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+  }
+  
+  .herbal-subtitle {
+      font-size: 1.2rem;
+      color: #4a6350;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      position: relative;
+      padding: 0 20px;
+  }
+  
+  .herbal-subtitle::before, 
+  .herbal-subtitle::after {
+      content: "❧";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #4caf50;
+      opacity: 0.7;
+  }
+  
+  .herbal-subtitle::before {
+      left: 0;
+  }
+  
+  .herbal-subtitle::after {
+      right: 0;
+  }
+  
+  .herbal-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      justify-content: center;
+  }
+  
+  .herbal-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      border: 1px solid #e8f5e9;
+  }
+  
+  .herbal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #2e7d32, #8bc34a);
+      opacity: 0.8;
+      transition: height 0.3s ease;
+  }
+  
+  .herbal-card:hover::before {
+      height: 8px;
+  }
+  
+  .herbal-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(76, 175, 80, 0.2);
+  }
+  
+  .herbal-card-image {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+  }
+  
+  .herbal-card-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(27, 94, 32, 0.3), rgba(139, 195, 74, 0.3));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+  }
+  
+  .herbal-card:hover .herbal-card-image::before {
+      opacity: 1;
+  }
+  
+  .herbal-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+  }
+  
+  .herbal-card:hover .herbal-card-image img {
+      transform: scale(1.05);
+  }
+  
+  .herbal-card-body {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+  }
+  
+  .herbal-card-date {
+      font-size: 0.85rem;
+      color: #2e7d32;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+  }
+  
+  .herbal-card-date::before {
+      content: "🌿";
+      margin-right: 8px;
+      font-size: 1.1rem;
+  }
+  
+  .herbal-card-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #1b5e20;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      transition: color 0.3s ease;
+  }
+  
+  .herbal-card:hover .herbal-card-title {
+      color: #388e3c;
+  }
+  
+  .herbal-card-text {
+      color: #5a6b5c;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      flex-grow: 1;
+  }
+  
+  .herbal-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 25px 25px;
+      border-top: 1px dashed #c8e6c9;
+      margin-top: auto;
+      padding-top: 20px;
+  }
+  
+  .herbal-card-mini-date {
+      font-size: 0.85rem;
+      color: #7e9d80;
+      font-weight: 500;
+      background: #f1f8e9;
+      padding: 4px 12px;
+      border-radius: 20px;
+  }
+  
+  .herbal-card-button {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+      color: #2e7d32;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 8px 16px;
+      background: rgba(46, 125, 50, 0.1);
+      border-radius: 30px;
+  }
+  
+  .herbal-card-button .herbal-arrow {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+      color: #2e7d32;
+  }
+  
+  .herbal-card-button:hover {
+      background: rgba(46, 125, 50, 0.2);
+      color: #1b5e20;
+  }
+  
+  .herbal-card-button:hover .herbal-arrow {
+      transform: translateX(4px);
+  }
+  
+  .herbal-tag-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+  }
+  
+  .herbal-tag {
+      background: rgba(76, 175, 80, 0.1);
+      color: #2e7d32;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+  }
+  
+  .herbal-tag i {
+      margin-right: 5px;
+      font-size: 0.8rem;
+  }
+  
+  .herbal-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #e8f5e9;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2e7d32;
+      font-size: 1.2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      z-index: 2;
+  }
+  
+  @media (max-width: 768px) {
+      .herbal-card-grid {
+          grid-template-columns: 1fr;
+      }
+      
+      .herbal-main-title {
+          font-size: 2.4rem;
+      }
+      
+      .herbal-leaf-decoration {
+          display: none;
+      }
+  }
+  
+  .herbal-watermark {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(46, 125, 50, 0.1);
+      font-size: 12rem;
+      z-index: 0;
+      font-weight: 800;
+      opacity: 0.1;
+      white-space: nowrap;
+      pointer-events: none;
+  }
+  
+  /* Unique decorative elements */
+  .herbal-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #4caf50, transparent);
+      margin: 30px auto;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 50%;
+  }
+
+  /* ---------------------------------------
+  Developer team 
+  --------------------------------------- */
+        /* Unique namespace for all styles */
+        .herbal-dev-container {
+            --herbal-primary: #1b5e20;
+            --herbal-secondary: #64ea6b;
+            --herbal-accent: #4caf50;
+            --herbal-light: #e8f5e9;
+            --herbal-dark: #000000;
+            --herbal-text: #3e2c2c;
+            --herbal-light-text: #5a6b5c;
+            
+            /* font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; */
+            /* background: linear-gradient(135deg, #f0f9f0 0%, #e4f5e4 100%); */
+            color: var(--herbal-text);
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+        
+        .herbal-dev-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Herbal Header */
+        .herbal-dev-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .herbal-dev-header h1 {
+            font-size: 40px;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--herbal-primary), var(--herbal-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        .herbal-dev-header p {
+            font-size: 2.3rem;
+            color: var(--herbal-light-text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .herbal-dev-divider {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--herbal-primary), transparent);
+            width: 80%;
+            max-width: 500px;
+            margin: 30px auto;
+            border-radius: 50%;
+        }
+        
+        /* Team Section */
+        .herbal-dev-team-section {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 24px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .herbal-dev-team-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--herbal-primary), var(--herbal-accent));
+        }
+        
+        .herbal-dev-team-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .herbal-dev-team-header h2 {
+            font-size: 3.8rem;
+            color: var(--herbal-dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .herbal-dev-team-header h2::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--herbal-accent);
+            border-radius: 3px;
+        }
+        
+        .herbal-dev-team-header p {
+            font-size: 2.2rem;
+            color: var(--herbal-light-text);
+            max-width: 700px;
+            margin: 30px auto 0;
+            line-height: 1.7;
+        }
+        
+        /* Team Grid */
+        .herbal-dev-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 35px;
+            justify-content: center;
+        }
+        
+        /* Team Card */
+        .herbal-dev-team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .herbal-dev-team-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(46, 125, 50, 0.2);
+        }
+        
+        .herbal-dev-card-header {
+            padding: 35px 30px 25px;
+            background: linear-gradient(135deg, var(--herbal-primary), var(--herbal-secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .herbal-dev-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+        }
+        
+        .herbal-dev-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .herbal-dev-card-header h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .herbal-dev-role {
+            font-size: 1.70rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .herbal-dev-card-body {
+            padding: 30px;
+        }
+        
+        .herbal-dev-card-body p {
+            color: var(--herbal-light-text);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 1.60rem;
+        }
+        
+        /* Skills */
+        .herbal-dev-skills-title {
+            font-weight: 700;
+            color: var(--herbal-dark);
+            margin-bottom: 20px;
+            font-size: 1.50rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .herbal-dev-skills-title i {
+            margin-right: 12px;
+            color: var(--herbal-accent);
+            font-size: 2.50rem;
+        }
+        
+        .herbal-dev-skill {
+            margin-bottom: 18px;
+        }
+        
+        .herbal-dev-skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 1.95rem;
+            color: var(--herbal-light-text);
+        }
+        
+        .herbal-dev-skill-bar {
+            height: 10px;
+            background: #e0e9e1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .herbal-dev-skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--herbal-primary), var(--herbal-accent));
+            border-radius: 5px;
+        }
+        
+        /* Social Links */
+        .herbal-dev-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px dashed #c8e6c9;
+        }
+        
+        .herbal-dev-social-links a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--herbal-light);
+            color: var(--herbal-primary);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .herbal-dev-social-links a:hover {
+            background: var(--herbal-accent);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Stats Section */
+        .herbal-dev-stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .herbal-dev-stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .herbal-dev-stat-card::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--herbal-primary), var(--herbal-accent));
+        }
+        
+        .herbal-dev-stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(46, 125, 50, 0.15);
+        }
+        
+        .herbal-dev-stat-icon {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--herbal-primary), var(--herbal-accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+        }
+        
+        .herbal-dev-stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--herbal-primary), var(--herbal-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 15px 0;
+        }
+        
+        .herbal-dev-stat-label {
+            font-size: 1.25rem;
+            color: var(--herbal-light-text);
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .herbal-dev-footer-note {
+            text-align: center;
+            margin-top: 60px;
+            color: var(--herbal-light-text);
+            font-size: 2.15rem;
+            padding: 30px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.7);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .herbal-dev-footer-note::before {
+            content: "";
+            position: absolute;
+            top : -30px;
+            left : 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            color: rgba(46, 125, 50, 0.1);
+            z-index: -1;
+        }
+        
+        /* Leaf decorations */
+        .herbal-dev-leaf {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+            color: var(--herbal-primary);
+        }
+        
+        .herbal-dev-leaf-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 8rem;
+            transform: rotate(-25deg);
+        }
+        
+        .herbal-dev-leaf-2 {
+            bottom: 15%;
+            right: 5%;
+            font-size: 6rem;
+            transform: rotate(35deg);
+        }
+        
+        .herbal-dev-leaf-3 {
+            top: 25%;
+            right: 8%;
+            font-size: 5rem;
+            transform: rotate(15deg);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .herbal-dev-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .herbal-dev-team-header h2 {
+                font-size: 2.3rem;
+            }
+            
+            .herbal-dev-stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .herbal-dev-team-section {
+                padding: 40px 20px;
+            }
+            
+            .herbal-dev-header h1 {
+                font-size: 2.4rem;
+            }
+            
+            .herbal-dev-team-header h2 {
+                font-size: 2rem;
+            }
+            
+            .herbal-dev-leaf {
+                display: none;
+            }
+        }
+/* //////////////////// 
+PREDICTION
+////////////////////*/
+/* Variables for consistent styling */
+
+:root {
+    --primary-color: #4CAF50; /* Green */
+    --secondary-color: #2E7D32; /* Darker Green */
+    --accent-color: #FFC107; /* Amber */
+    --light-color: #FFFFFF;
+    --dark-color: #333333;
+    --gray-color: #DDDDDD;
+    --light-gray-color: #F8F8F8;
+
+    --border-radius: 12px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+/* Base styles */
+/* body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+} */
+
+/* Main container for the whole application */
+.herbal-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Decorative leaf elements */
+.herbal-leaf-decoration {
+    position: absolute;
+    font-size: 8rem; /* Large leaves */
+    color: rgba(76, 175, 80, 0.1); /* Primary color with transparency */
+    z-index: 0; /* Behind content */
+}
+
+.herbal-leaf-1 {
+    top: -50px;
+    left: -50px;
+    transform: rotate(30deg);
+}
+
+.herbal-leaf-2 {
+    bottom: -50px;
+    right: -50px;
+    transform: rotate(-45deg);
+}
+
+/* Main content area */
+.herbal-main-content {
+    flex-grow: 1;
+    position: relative; /* For z-index to work */
+    z-index: 1; /* Above decorative leaves */
+    padding: 2rem; /* Add some padding around the grid */
+}
+
+/* Base card styles */
+.card {
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    box-sizing: border-box;
+    transition: var(--transition);
+    border: 1px solid var(--gray-color);
+    color: var(--dark-color);
+    /* Ensure content inside doesn't overflow horizontally */
+    overflow-x: hidden; /* Added to prevent horizontal overflow within any .card */
+}
+/* Ensure .card-content-padded doesn't restrict width unnecessarily */
+.card-content-padded {
+    /* If this class exists and has fixed width/max-width, it could be a culprit */
+    width: 100%; /* Ensure it always takes full width of its parent .card */
+    box-sizing: border-box; /* Include its padding in the width */
+    /* Check its padding, it should be reasonable */
+    padding: 1.5rem; /* Or whatever value you want */
+}
+/* Add space between the dynamically loaded issue card and remedy card */
+.herbal-detailed-remedies-grid .herbal-issue-card {
+    margin-bottom: 20px; /* Or 30px, to match your desired gap */
+}
+
+/* Titles */
+.herbal-section-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Icons in titles */
+.herbal-section-title i {
+    color: var(--secondary-color);
+}
+
+.herbal-btn {
+    border: none;
+    padding: 0.9rem 1.5rem; /* Increased padding */
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem; /* Slightly increased font size */
+}
+
+.herbal-btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.herbal-btn-primary:hover:not(:disabled) {
+    background-color: var(--secondary-color);
+}
+
+.herbal-btn-secondary {
+    background-color: var(--light-gray-color);
+    color: var(--dark-color);
+    border: 1px solid var(--gray-color);
+}
+
+.herbal-btn-secondary:hover:not(:disabled) {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Disabled buttons */
+.herbal-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Style for the info text below buttons */
+.herbal-info-text {
+    display: block; /* Make it take its own line */
+    margin-top: 1.5rem; /* Space from buttons above */
+    padding: 1rem; /* Inner padding */
+    background-color: rgba(76, 175, 80, 0.05); /* Very light primary background */
+    color: #2E7D32; /* Text color to primary green */
+    border: 1px solid rgba(76, 175, 80, 0.2); /* Light primary border */
+    border-radius: var(--border-radius); /* Rounded corners */
+    font-size: 16px; /* Slightly smaller text for info */
+    line-height: 1.5;
+    max-width: 100%;
+}
+
+/* Style for the icon within the info text */
+.herbal-info-text i {
+    font-size: 1.2em; /* Make the icon slightly larger than the text */
+    color: var(--secondary-color); /* A slightly darker green for the icon */
+    min-width: 20px; /* Ensure consistent spacing if icon size varies */
+    text-align: center; /* Center the icon itself */
+}
+
+/* Status indicator */
+.herbal-status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.herbal-status-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Confidence meter */
+.herbal-confidence-meter {
+    width: 100%;
+    height: 12px;
+    background-color: var(--gray-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.herbal-confidence-level {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.4s ease;
+    border-radius: 8px 0 0 8px;
+}
+
+/* Text for confidence */
+#diagnosisConfidenceText {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Main Grid Container - MODIFIED FOR COLUMN LAYOUT */
+.herbal-card-grid {
+    display: flex;
+    flex-direction: column; /* ALWAYS stack vertically */
+    gap: 30px;
+    align-items: center; /* Center cards horizontally in the column */
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: var(--light-gray-color);
+    max-width: 1000px; /* Sets the maximum width for the entire grid */
+    width: 100%; /* Ensure it takes full width up to max-width */
+    margin: 0 auto; /* Center the grid itself on the page */
+}
+
+/* Prediction Input Section (Top Card) */
+.herbal-upload-section {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    background-color: #d7e3cd;
+    transition: all ease-in-out 0.4s;
+    box-shadow: 0 4px 8px rgba(11, 67, 0, 0.934);/* Initial subtle shadow */
+}
+
+.herbal-upload-section:hover {
+    transform: translateY(-5px); /* Moves element up by 5px */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.078); /* Deeper shadow on hover */
+}
+
+/* Diagnosis Results Summary (Bottom Card - The "green card") */
+.herbal-results-section {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 280px;
+    background-color: #cfddc2; /* This is your 'green card' background */
+    transition: all ease-in-out 0.4s;
+    box-shadow: 0 4px 8px rgba(11, 67, 0, 0.934); /* Initial subtle shadow */
+}
+
+.herbal-results-section:hover {
+    transform: translateY(-5px); /* Moves element up by 5px */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.78); /* Deeper shadow on hover */
+}
+
+/* --- Core structure adjustments for white cards within the green card --- */
+
+/* Ensure the .herbal-card-body can contain its children properly */
+.herbal-results-section .herbal-card-body {
+    display: flex;
+    flex-direction: column; /* Stack contents vertically: summary, then detailed remedies */
+    gap: 1.5rem; /* Space between summary and detailed remedies grid */
+    padding: 1.5rem; /* Ensure consistent padding within the card body */
+    overflow-x: hidden; /* ADDED: Crucial to prevent horizontal overflow of internal elements */
+}
+
+/* New Grid for Detailed Issue and Remedy Cards (the white cards are children of this grid) */
+.herbal-detailed-remedies-grid {
+    display: grid;
+    /* Default: 2 columns if space allows, otherwise 1. Min size for a column is 300px. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Adjusted gap */
+    align-items: flex-start; /* Align cards at the top */
+    margin-top: 0; /* Managed by parent gap now */
+    width: 100%; /* CRUCIAL: Ensure it takes full width of its parent container */
+    box-sizing: border-box; /* Include padding/border in width calculation for this grid */
+    overflow-x: hidden; /* Added as a safeguard for this grid itself */
+}
+
+/* Individual Issue Card & Individual Remedy Card (the "white cards") */
+.herbal-issue-card{
+    /* Inherits .card styles, which now includes overflow-x: hidden; */
+    display: flex;
+    flex-direction: column; /* Stack content vertically within each card */
+    min-width: unset; /* CRUCIAL: Allow cards to shrink as needed, preventing fixed width overflow */
+    width: 100%; /* Ensure they take up 100% of their grid column */
+    box-sizing: border-box; /* Include padding/border in width calculation */
+}
+/* And ensure herbal-remedy-card itself doesn't limit its internal content */
+.herbal-remedy-card {
+    width: 100%; /* Ensure it always takes full width of its grid column */
+    min-width: unset; /* Very important for responsiveness */
+    box-sizing: border-box; /* Include padding/border in width */
+    overflow-x: hidden; /* As a safeguard */
+}
+/* Make sure lists don't overflow due to large bullets or long words */
+.remedy-steps {
+    list-style-type: disc; /* Or your preferred bullet style */
+    padding-left: 1.5em; /* Ensure enough space for bullets */
+    margin-left: 0; /* Reset default margin if any */
+}
+
+.remedy-steps li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+/* --- Updated CSS for consistent full-width remedy images --- */
+
+.remedy-card .remedy-image-wrapper {
+    /* Ensure the wrapper also takes full width and doesn't introduce extra spacing */
+    width: 100%;
+    /* No padding here, let the image fill it */
+    overflow: hidden; /* Important if the image is slightly bigger than its wrapper */
+    margin-top: 1rem; /* Space above the image */
+    margin-bottom: 0; /* No extra space below if not needed */
+}
+
+.remedy-card .remedy-image {
+    width: 100%; /* Make image take full width of its container (remedy-image-wrapper) */
+    height: 200px; /* FIXED HEIGHT: All images will be this height */
+    object-fit: cover; /* Crops the image to fit the 100% width and fixed height, maintaining aspect ratio */
+    border-radius: 8px; /* Apply border-radius directly to the image */
+    display: block; /* Ensure it behaves as a block element for proper sizing */
+    /* Remove any margins if previously set for centering, as it's now full width */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* --- Responsive Adjustments (Refined for card overflow and image consistency) --- */
+
+@media (max-width: 1024px) {
+    .herbal-results-section .herbal-card-body {
+        gap: 1.2rem;
+    }
+    .herbal-detailed-remedies-grid {
+        gap: 18px;
+    }
+    .herbal-issue-card, .herbal-remedy-card {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets (portrait) and large phones */
+    .herbal-results-section .herbal-card-body {
+        gap: 1rem;
+        padding: 1.2rem; /* Reduce padding inside the card body */
+    }
+    .card {
+        padding: 1rem; /* Reduce general card padding as well */
+    }
+
+    /* IMPORTANT: Force detailed remedies grid to single column on tablets */
+    .herbal-detailed-remedies-grid {
+        grid-template-columns: 1fr; /* Stack issue and remedy vertically */
+        gap: 15px; /* Smaller gap when stacked */
+        overflow-x: hidden; /* Added as a safeguard */
+    }
+
+    .herbal-issue-card,
+    .herbal-remedy-card {
+        min-width: unset; /* Explicitly remove min-width constraint */
+        width: 100%; /* Ensure they take up 100% of the single column */
+        padding: 1rem; /* Adjust padding for inner cards */
+    }
+
+    /* Further text/element sizing for smaller screens */
+    .herbal-section-title {
+        font-size: 1.3rem;
+    }
+    .herbal-status-indicator span {
+        font-size: 0.9em;
+    }
+    .herbal-issue-card .herbal-issue-name {
+        font-size: 1.1rem;
+    }
+    .remedy-card h4 {
+        font-size: 1rem;
+    }
+    .remedy-card p, .remedy-steps li, .herbal-collapsible-content p {
+        font-size: 0.85rem;
+        word-wrap: break-word; /* ADDED: Ensure long words break within content */
+        overflow-wrap: break-word; /* ADDED: Ensure long words break within content */
+    }
+    .remedy-card .remedy-image {
+        max-height: 180px; /* Limit image height to prevent dominance */
+        height: 180px; /* Fixed height for consistency */
+        object-fit: cover; /* Ensure image covers space without distortion */
+    }
+}
+
+@media (max-width: 480px) { /* Smaller mobile devices */
+    .herbal-results-section .herbal-card-body {
+        gap: 0.8rem;
+        padding: 1rem; /* Further reduce padding inside */
+    }
+    .card {
+        padding: 0.8rem; /* Further reduce general card padding */
+    }
+    .herbal-section-title {
+        font-size: 1.1rem;
+    }
+    .herbal-status-indicator span {
+        font-size: 0.85em;
+    }
+    .herbal-issue-card .herbal-issue-name {
+        font-size: 1rem;
+    }
+    .remedy-card h4 {
+        font-size: 0.95rem;
+    }
+    .remedy-card p, .remedy-steps li, .herbal-collapsible-content p {
+        font-size: 0.8rem;
+    }
+    .herbal-detailed-remedies-grid {
+        gap: 10px;
+    }
+    .remedy-card .remedy-image {
+        max-height: 150px;
+        height: 150px; /* Fixed height for consistency */
+    }
+}
+
+/* Individual Issue Card */
+.herbal-issue-card {
+    /* Inherits .card styles and new width/min-width from above */
+    flex: 1; /* Allows it to grow within the detailed grid */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    /* min-width: 280px; -- REMOVED/OVERRIDDEN by 'min-width: unset;' in responsive queries */
+}
+
+/* Individual Remedy Card */
+.herbal-remedy-card {
+    /* Inherits .card styles and new width/min-width from above */
+    flex: 1; /* Allows it to grow within the detailed grid */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    /* min-width: 280px; -- REMOVED/OVERRIDDEN by 'min-width: unset;' in responsive queries */
+}
+
+/* Styling for remedy image within the card */
+.remedy-card .remedy-image {
+    max-width: 100%;
+    /* height: auto; -- Removed in favor of fixed height + object-fit */
+    height: 200px; /* ADDED: Fixed height for consistent image display */
+    object-fit: cover; /* ADDED: Ensure image covers the area, cropping as needed */
+    border-radius: 8px;
+    margin-top: 1rem;
+    display: block; /* ADDED: Important for height and width to behave correctly */
+}
+.remedy-card .remedy-image-placeholder {
+    width: 100%;
+    height: 150px; /* Placeholder height */
+    background-color: var(--gray-color);
+    border-radius: 8px;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-color);
+    font-style: italic;
+}
+
+
+/* Responsive Adjustments - These are now less critical for the main card layout,
+    as we've forced column direction globally. */
+@media (min-width: 1200px) {
+    /* On larger screens, the detailed remedies grid can still be two columns */
+    .herbal-detailed-remedies-grid {
+        grid-template-columns: 1fr 1fr; /* Explicitly two columns */
+    }
+}
+
+@media (max-width: 900px) {
+    /* This media query can now be simplified or removed for the main cards,
+        as flex-direction: column is global.
+        However, it still applies to the detailed remedies grid if needed. */
+    /* REMOVED: This rule is redundant now as the 768px query handles stacking */
+    /* .herbal-detailed-remedies-grid {
+        grid-template-columns: 1fr;
+    } */
+}
+
+/* Existing styles for images, video, canvas */
+.herbal-preview-container {
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#imagePreview, #herbal-camera-feed {
+    max-width: 100%;
+    max-height: 400px;
+    display: block; /* Ensure they take up space when active */
+    margin: 0 auto; /* Center them */
+}
+
+#imagePreview, #herbal-camera-feed, #canvas {
+    width: 100%; /* Ensure they fill their container */
+    height: auto; /* Maintain aspect ratio */
+    display: none; /* Hidden by default, JS toggles */
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Allows clicks to pass through to elements behind */
+}
+
+/* Spinner (commented out in original, keeping it that way) */
+/* .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--primary-color);
+    animation: spin 1s ease infinite;
+    display: none;
+    margin: 20px auto;
+} */
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Remedy card specific styles */
+.remedy-card {
+    display: flex;
+    flex-direction: column; /* Stack content and image */
+    height: 100%; /* Ensure cards in a flex/grid row are same height */
+}
+
+.remedy-card .remedy-content {
+    flex-grow: 1; /* Allow content to take up available space */
+}
+
+.remedy-card h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.remedy-card p {
+    margin-bottom: 0.5rem;
+}
+
+.remedy-steps {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.remedy-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto; /* Push navigation to the bottom */
+    padding-top: 1rem; /* Space from content above */
+    border-top: 1px solid var(--light-gray-color);
+}
+
+.remedy-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.remedy-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.remedy-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --- NEW ADDITIONS FOR COLLAPSIBLE CAUSES/SYMPTOMS --- */
+
+/* Styles for the issue card's title and buttons */
+.herbal-issue-card .herbal-issue-name {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.herbal-issue-card .herbal-issue-name i {
+    color: var(--secondary-color);
+}
+
+.herbal-issue-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem; /* Space between buttons and collapsible content */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* Styles for collapsible content */
+.herbal-collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smooth transition for height and padding */
+    padding: 0 1rem; /* Initial padding */
+    box-sizing: border-box;
+    border-left: 3px solid var(--accent-color); /* Little visual indicator */
+    margin-top: 1rem;
+}
+
+.herbal-collapsible-content.active {
+    max-height: 500px; /* Or a value large enough to contain content, adjust as needed. This allows transition. */
+    padding: 1rem; /* Padding when active */
+}
+
+.herbal-collapsible-content h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.herbal-collapsible-content p {
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+/* Existing styles for images, video, canvas */
+.herbal-preview-container {
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#imagePreview, #herbal-camera-feed {
+    max-width: 100%;
+    max-height: 400px;
+    display: block; /* Ensure they take up space when active */
+    margin: 0 auto; /* Center them */
+}
+
+#imagePreview, #herbal-camera-feed, #canvas {
+    width: 100%; /* Ensure they fill their container */
+    height: auto; /* Maintain aspect ratio */
+    display: none; /* Hidden by default, JS toggles */
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Allows clicks to pass through to elements behind */
+}
+
+/* Spinner */
+/* .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--primary-color);
+    animation: spin 1s ease infinite;
+    display: none;
+    margin: 20px auto;
+} */
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Remedy card specific styles */
+.remedy-card {
+    display: flex;
+    flex-direction: column; /* Stack content and image */
+    height: 100%; /* Ensure cards in a flex/grid row are same height */
+}
+
+.remedy-card .remedy-content {
+    flex-grow: 1; /* Allow content to take up available space */
+}
+
+.remedy-card h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.remedy-card p {
+    margin-bottom: 0.5rem;
+}
+
+.remedy-steps {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.remedy-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto; /* Push navigation to the bottom */
+    padding-top: 1rem; /* Space from content above */
+    border-top: 1px solid var(--light-gray-color);
+}
+
+.remedy-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.remedy-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.remedy-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --- NEW ADDITIONS FOR COLLAPSIBLE CAUSES/SYMPTOMS --- */
+
+/* Styles for the issue card's title and buttons */
+.herbal-issue-card .herbal-issue-name {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.herbal-issue-card .herbal-issue-name i {
+    color: var(--secondary-color);
+}
+
+.herbal-issue-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem; /* Space between buttons and collapsible content */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* Styles for collapsible content */
+.herbal-collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smooth transition for height and padding */
+    padding: 0 1rem; /* Initial padding */
+    box-sizing: border-box;
+    border-left: 3px solid var(--accent-color); /* Little visual indicator */
+    margin-top: 1rem;
+}
+
+.herbal-collapsible-content.active {
+    max-height: 500px; /* Or a value large enough to contain content, adjust as needed. This allows transition. */
+    padding: 1rem; /* Padding when active */
+}
+
+.herbal-collapsible-content h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.herbal-collapsible-content p {
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+/* --------------------------- 
+Face Analysis
+------------------------------- */
+.video-banner {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101vw;    /* Overfill slightly to remove flicker */
+  height: 101vh;   /* Overfill slightly to remove flicker */
+  object-fit: cover;
+  pointer-events: none;  /* Prevent scroll issues */
+  z-index: -1;
+  display: block;
+}
+
+/* popup.css */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of everything */
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+.popup-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.popup-content p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.popup-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease-in-out;
+    margin: 5px;
+}
+
+.popup-button:hover {
+    background-color: #45a049;
+}
+
+.popup-button.popup-close {
+    background-color: #f44336; /* Red */
+}
+
+.popup-button.popup-close:hover {
+    background-color: #da190b;
+}
+
+/* Optional: Add a subtle animation for entry */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.popup-content {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* --- Add Your Review Section Styles --- */
+
+/* Ensure the parent .row is a flex container for equal height columns */
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+    align-items: stretch; /* Ensures flex items stretch to the height of the tallest item */
+}
+
+/* Base styles for both content areas */
+.reviews-display-area,
+.review-form-area {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    height: 100%; /* Crucial for equal height within the flex row */
+    display: flex; /* Make them flex containers to manage their internal vertical layout */
+    flex-direction: column;
+}
+
+/* Styles specific to the reviews display area (left column) */
+.reviews-display-area {
+    background-color: #f8f8f8; /* Light background as per original design */
+    justify-content: space-between; /* Pushes the CTA banner to the bottom */
+}
+
+.reviews-display-area h2 {
+    font-size: 2.5em; /* Larger font size for the main title */
+    font-weight: bold;
+    margin-bottom: 20px; /* Space below the title */
+    color: #333;
+    line-height: 1.2; /* Adjust line height for multi-line title */
+}
+
+.reviews-display-area h2 .heart-icon {
+    color: #e74c3c; /* Red heart icon, as seen in the reference image */
+    font-size: 0.8em; /* Adjust size relative to text */
+    vertical-align: middle; /* Align with text */
+}
+/* * New/Updated Styles for image-with-counter and review-counter */ */
+.image-with-counter {
+    position: relative; /* VERY IMPORTANT: Establishes a positioning context for absolute children */
+    width: 250px; /* Define the fixed width for this container */
+    height: 250px; /* Define the fixed height for this container (e.g., make it square) */
+    margin-bottom: 20px; /* Space below this block */
+    border-radius: 8px; /* Rounded corners for the entire image container */
+    overflow: hidden; /* Ensures image and counter stay within rounded bounds */
+    background-color: #e0e0e0; /* Fallback background */
+}
+
+.image-with-counter img {
+    width: 100%; /* Make the image fill the width of its parent */
+    height: 100%; /* Make the image fill the height of its parent */
+    object-fit: cover; /* Crucial: Scales and crops image to fill, maintaining aspect ratio */
+    display: block; /* Remove extra space below image */
+    border-radius: 8px; /* Apply rounded corners directly to the image */
+}
+
+.review-counter {
+    position: absolute; /* VERY IMPORTANT: Positions relative to the nearest positioned ancestor (.image-with-counter) */
+    bottom: 15px; /* Adjust as needed for vertical position from bottom */
+    right: 15px; /* Adjust as needed for horizontal position from right */
+    background-color: rgba(28, 94, 0, 0.6); /* Semi-transparent black background */
+    color: white; /* White text color */
+    padding: 8px 12px; /* Padding inside the counter box */
+    border-radius: 5px; /* Slightly rounded corners for the counter box */
+    font-size: 1.2em; /* Adjust font size */
+    font-weight: bold;
+    text-align: center; /* Center the text within the counter box */
+    line-height: 1; /* Adjust line height for single line of text */
+}
+
+.review-counter .count {
+  color: white;
+  font-size: smaller;
+    /* No specific styling needed for .count span, inherits from .review-counter */
+}
+
+/* Wrapper for image and counter to manage their horizontal layout */
+.image-wrapper-and-counter {
+    display: flex;
+    align-items: center; /* Vertically align image and counter */
+    margin-bottom: 20px; /* Space below this block */
+    gap: 20px; /* Space between image and counter */
+}
+
+/* Ensure the image container is exactly the size you want */
+.image-display {
+    flex-shrink: 0; /* Prevent it from shrinking */
+    width: 250px; /* Set your desired fixed width for the image area */
+    height: 250px; /* Set your desired fixed height for the image area (e.g., make it square) */
+    border-radius: 8px; /* Rounded corners for the container */
+    overflow: hidden; /* Crucial: Clips anything outside the container's bounds, especially important for object-fit */
+    /* Remove any background-color or border properties here if they are causing the white outline */
+    background-color: transparent; /* Ensure no background color is showing through */
+    border: none; /* Ensure no border is present on the container */
+    padding: 0; /* Ensure no padding is pushing the image inward */
+}
+
+/* Make the image itself fill its container */
+.image-display img {
+    width: 100%; /* Make the image take 100% of the parent's width */
+    height: 100%; /* Make the image take 100% of the parent's height */
+    object-fit: cover; /* This is the key: it forces the image to cover the entire area,
+                           cropping if necessary, without distorting its aspect ratio. */
+    border-radius: 8px; /* Apply rounded corners directly to the image */
+    display: block; /* Removes any extra space below the image common with inline elements */
+    vertical-align: top; /* Prevents tiny gaps if display:block doesn't fully resolve */
+}
+
+.review-counter {
+    /* Large, prominent count next to the image */
+    font-size: 3.5em; /* Significantly larger font size */
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1; /* Adjust line height for large number */
+    flex-grow: 1; /* Allow it to take available space */
+    text-align: left; /* Align text to the left */
+}
+
+.review-counter .plus-sign {
+    font-size: 0.6em; /* Smaller plus sign */
+    vertical-align: super; /* Raise the plus sign */
+    margin-left: 2px; /* Space from number */
+}
+
+/* Styles for "No reviews yet" message if present */
+.no-reviews-message {
+    font-size: 1.1em;
+    color: #777;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styles for the scrollable reviews container */
+.reviews-scroll-container {
+    max-height: 400px; /* Set your desired max height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling when content exceeds max-height */
+    padding-right: 15px; /* Add padding to prevent scrollbar from cutting into content */
+    margin-bottom: 20px; /* Space between the scrollable reviews and the CTA banner */
+    flex-grow: 1; /* Allows it to take up available vertical space within .reviews-display-area */
+    flex-shrink: 1;
+    flex-basis: auto; /* Allows content to define initial size */
+}
+
+/* Review Block Colors and Text Colors */
+.review-block {
+    background-image: url('/static/images/ChatGPT Image.png'); /* Corrected path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative; /* VERY IMPORTANT: Needed for positioning the ::before pseudo-element */
+    z-index: 1; /* Ensures content is above the overlay */
+
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(101, 100, 100, 0.1);
+
+    /* Ensure text color is light for readability against potential dark overlay */
+    /* If your text (like review-block p, reviewer-info) is currently dark, change it to white: */
+    /* color: #ffffff; */
+}
+
+/* Create the semi-transparent overlay */
+.review-block::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use rgba for a semi-transparent color. Example: a dark overlay with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.562); /* Black overlay with 50% opacity */
+    /* You can adjust the rgba values:
+       - First three numbers (0,0,0) for RGB color (e.g., 0,0,0 is black; 255,255,255 is white)
+       - Last number (0.5) for alpha (opacity) from 0 (fully transparent) to 1 (fully opaque)
+    */
+    border-radius: inherit; /* Inherit border-radius from parent for rounded corners */
+    z-index: -1; /* Place the overlay behind the content but above the background image */
+}
+
+.review-block:first-child {
+    margin-top: 0; /* Remove top margin for the very first review block */
+}
+
+/* Apply the base styling to the .stars container */
+.review-block .stars {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    /* You might remove color here if you want individual icons to determine it */
+}
+
+/* Style for solid stars (filled stars) */
+.review-block .stars .fa-star {
+    color: #c7c52b; /* Your desired gold/yellow color for filled stars */
+}
+
+/* Style for outline stars (empty stars) */
+.review-block .stars .fa-star-o {
+    color: #cccccc; /* A light grey color for outline stars to make them appear "empty" */
+    /* Alternatively, you can use a semi-transparent version of the solid color for a softer look: */
+    /* color: rgba(199, 197, 43, 0.4); */
+}
+.review-block p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 15px;
+
+    /* CSS for text truncation - Keep for consistent look if full text is not desired */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+}
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #ccc;
+}
+
+.reviewer-info strong {
+    font-size: 1.1em;
+    color: #ffffff;
+}
+
+.reviewer-info small {
+    color: #e0e0e0;
+}
+
+/* Styles for the call to action banner */
+.call-to-action-banner {
+    background-color: #81c784; /* Green background */
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: auto; /* Pushes it to the bottom within the flex container */
+    flex-shrink: 0; /* Prevents it from shrinking too much */
+}
+
+.call-to-action-banner h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.call-to-action-banner .btn {
+    background-color: white;
+    color: #81c784;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.call-to-action-banner .btn:hover {
+    background-color: #f0f0f0;
+    color: #66bb6a;
+}
+
+/* Styles for the review form section (right column) */
+.review-form-area {
+    background-color: #ffffff; /* White background for the form */
+    /* Height and flex properties are already set in the combined rule above */
+    justify-content: space-between; /* To push the bottom image down if needed */
+}
+
+.review-form-area .section-title h2 {
+    color: #333;
+}
+
+.review-form-area .section-title h4 {
+    color: #666;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* NEW: Styles for the image at the bottom of the form area */
+.form-bottom-image {
+    margin-top: auto; /* Pushes it to the bottom if content above is short */
+    flex-shrink: 0; /* Prevents it from shrinking */
+    text-align: center; /* Center the image within its container */
+    padding-top: 20px; /* Add some padding above the image */
+}
+
+.form-bottom-image img {
+    max-width: 100%; /* Ensure image fits its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Match other rounded elements */
+}
+
+
+/* Bootstrap 5 Alert Close Button Adjustments */
+.alert .btn-close {
+    filter: invert(1); /* Makes a dark close icon appear white for better contrast */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 991.98px) { /* Adjust breakpoint for tablets/smaller desktops */
+    .reviews-display-area,
+    .review-form-area {
+        margin-bottom: 30px; /* Add space between stacked columns on smaller screens */
+        min-height: auto; /* Allow height to be auto on smaller screens if content is too much */
+        padding-bottom: 20px; /* Add some padding bottom when stacked */
+    }
+    .reviews-display-area h2 {
+        font-size: 1.8em; /* Adjust font size for smaller screens */
+    }
+    .image-wrapper-and-counter {
+        flex-direction: column; /* Stack image and counter vertically on small screens */
+        align-items: flex-start;
+    }
+    .review-counter {
+        text-align: center; /* Center the number when stacked */
+        width: 100%; /* Take full width when stacked */
+    }
+    .reviews-scroll-container {
+        max-height: 300px; /* Reduce scrollable height on smaller screens */
+    }
+    .form-bottom-image {
+        margin-top: 20px; /* Adjust margin for smaller screens if needed */
+    }
+}
+
+.website-description {
+    margin-top: 30px; /* Adjust spacing from the button above */
+    text-align: center; /* Center the text content */
+    padding: 20px; /* Add some internal padding */
+    background-color: #f8f8f8; /* A subtle background to distinguish it, similar to the left card */
+    border-radius: 10px; /* Match the border-radius of the cards */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.website-description h3 {
+    font-size: 1.8em; /* Slightly larger for the main title */
+    font-weight: bold;
+    color: #333; /* Darker text color for headings */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.website-description p {
+    font-size: 1em; /* Standard paragraph font size */
+    line-height: 1.6; /* Good readability */
+    color: #555; /* Softer text color for body */
+    margin-bottom: 0; /* No bottom margin if it's the last element */
+}
+
+/* You might want to adjust media queries if this text needs different styling on smaller screens */
+@media (max-width: 768px) {
+    .website-description {
+        margin-top: 20px;
+        padding: 15px;
+    }
+    .website-description h3 {
+        font-size: 1.5em;
+    }
+    .website-description p {
+        font-size: 0.95em;
+    }
+}
+
+
+ .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            background-color: #fff;
+            padding: 18px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.15em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .faq-question:hover {
+            background-color: #f0fafa; /* Lighter shade of your brand color */
+            color: #2c3e50;
+        }
+
+        .faq-question.active {
+            background-color: #e6ffe6; /* Even lighter green when active */
+            color: #4CAF50;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .faq-question .icon {
+            font-size: 1.4em;
+            transition: transform 0.3s ease;
+            color: #4CAF50; /* Icon color */
+        }
+
+        .faq-question.active .icon {
+            transform: rotate(180deg);
+            color: #2c3e50;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            background-color: #fdfdfd;
+            padding: 0 25px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            color: #555;
+            font-size: 1em;
+        }
+
+        .faq-answer p {
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .faq-answer ul {
+            padding: 10px 20px 20px 40px; /* Adjust list padding */
+            margin: 0;
+        }
+
+        .faq-answer ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Design for FAQ items only */
+        @media (max-width: 768px) {
+            .faq-question {
+                font-size: 1em;
+                padding: 15px 20px;
+            }
+
+            .faq-question .icon {
+                font-size: 1.2em;
+            }
+
+            .faq-answer p, .faq-answer ul {
+                padding: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-question {
+                font-size: 0.9em;
+                padding: 12px 15px;
+            }
+            .faq-answer {
+                padding: 0 15px;
+            }
+            .faq-answer p, .faq-answer ul {
+                padding: 10px 0;
+            }
+            .faq-answer ul {
+                 padding-left: 30px; /* Adjust list indent on small screens */
+            }
+        }
+/* Styling for important photo upload guidelines */
+.photo-upload-guidelines {
+    color: #CC0000; /* A slightly softer red than pure red, commonly used for warnings/important notes */
+    font-size: 15px; /* Slightly larger text to make it stand out */
+    margin-top: 20px; /* Add some space above the paragraph */
+    margin-bottom: 20px; /* Add some space below the paragraph */
+    padding: 15px; /* Add some internal padding */
+    border-radius: 8px; /* Slightly rounded corners */
+    background-color: #FFF0F0; /* A very light red background to emphasize it as a note */
+    border: 1px solid #FFCCCC; /* A light red border */
+    line-height: 1.6; /* Improve readability */
+    text-align: center; /* Center the text if it's a standalone block */
+    max-width: 700px; /* Limit width for better readability on large screens */
+    margin-left: auto; /* Center the block itself */
+    margin-right: auto; /* Center the block itself */
+}
+
+/* Optional: Adjust for smaller screens */
+@media (max-width: 576px) {
+    .photo-upload-guidelines {
+        font-size: 0.95rem;
+        padding: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+        

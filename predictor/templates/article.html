@@ -1,0 +1,991 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>Glow Genesis Organic Care</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+     <link href="{% static 'images/TabLogo.png' %}" rel="icon" type="image/x-icon"  sizes="256x256">
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+     <link rel="stylesheet" href="{% static 'css/articles.css' %}">
+     <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+     <!-- MENU -->
+<section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+
+            <a href="{% url 'index_page' %}" class="navbar-brand" style="display: flex; align-items: center; gap: 8px;">
+                <img src= "{% static 'images/logo_web-removebg-preview.png' %}" alt="Logo" style="height: 180px;">
+                </a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-nav-first">
+                <li><a href="{% url 'index_page' %}" class="smoothScroll">Home</a></li> {# Changed to use Django URL tag #}
+                <li><a href="#about" class="smoothScroll">About</a></li>
+                <li><a href="{% url 'developer_team_page' %}" class="smoothScroll">Developer Team</a></li>
+                <li><a href="{% url 'article_page' %}" target="_blank">Article</a></li> {# Assuming 'article_page' is protected #}
+                <li><a href="#menu" class="smoothScroll">Remedies</a></li>
+                <li><a href="#contact" class="smoothScroll">Contact</a></li>
+            </ul>
+
+            {% comment %} <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    {# Show protected links/buttons and logout if logged in #}
+                    <li><a href="{% url 'model_page' %}" class="section-btn">Skin-Diagnose</a></li> {# This should be 'model_page' based on previous discussion #}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Hello, {{ user.username }} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            {# Add other user-specific links here if needed #}
+                        </ul>
+                    </li>
+                {% else %}
+                    {# Show login/signup if not logged in #}
+                    <li><a href="{% url 'auth_page' %}" class="section-btn">Login / Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div> {% endcomment %}
+</section>
+
+     <!-- HOME -->
+     {% comment %} <section id="home" class="slider" data-stellar-background-ratio="0.5">
+          <div class="row">
+
+                    <div class="owl-carousel owl-theme">
+                         <div class="item item-first">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>Skin Diseases Recognition &amp; Diagnosis System</h3>
+                                             <h1>Our mission is to deliver an AI-powered skin diagnosis experience you’ll never forget.</h1>
+                                             <a href="{% url 'model_page' %}" class="section-btn btn btn-default smoothScroll" >Click Here for AI-Powered Skin Diagnosis</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-second">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>Smart Skin Analysis</h3>  
+                                             <h1>Experience AI-Powered Skin Diagnosis Instantly!</h1>  
+                                             <a href="{% url 'model_page' %}" class="section-btn btn btn-default smoothScroll">Click Here for AI-Powered Skin Diagnosis</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-third">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>Smart Skin Analysis, Natural Healing</h3>  
+                                             <h1>AI-Powered Diagnosis with Home Remedy Suggestions</h1>  
+                                             <a href="{% url 'model_page' %}" class="section-btn btn btn-default smoothScroll">Click Here for AI-Powered Skin Diagnosis</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+          </div>
+     </section> {% endcomment %}
+     <!-- Blog card -->
+
+     {% comment %} <div class="herbal-skin-component">
+        <div class="herbal-watermark">HERBAL CARE</div>
+        
+        <div class="herbal-skin-container">
+            <header class="herbal-skin-header">
+                <div class="herbal-leaf-decoration herbal-leaf-1">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="herbal-leaf-decoration herbal-leaf-2">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h1 class="herbal-main-title">Natural Skin Solutions</h1>
+                <p class="herbal-subtitle">Harnessing the power of nature for healthy, radiant skin through AI diagnostics and herbal remedies</p>
+            </header>
+            
+            <div class="herbal-divider"></div>
+            
+            <div class="herbal-card-grid">
+                <div class="herbal-card">
+                    <div class="herbal-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="herbal-card-image">
+                        <img src="{% static '/images/acne.jpg' %}" alt="Herbal Skin Care">
+                    </div>
+                    <div class="herbal-card-body">
+                        <p class="herbal-card-date">20th February 2025</p>
+                        <h3 class="herbal-card-title">Top Herbal Remedies for Common Skin Conditions</h3>
+                        <p class="herbal-card-text">Discover nature's solutions for skin health. Our AI-powered diagnostics identify issues and recommend personalized herbal treatments for acne, eczema, and more.</p>
+                        <div class="herbal-tag-container">
+                            <span class="herbal-tag"><i class="fas fa-seedling"></i> Herbal Solutions</span>
+                            <span class="herbal-tag"><i class="fas fa-spa"></i> Skin Health</span>
+                            <span class="herbal-tag"><i class="fas fa-brain"></i> AI Diagnostics</span>
+                        </div>
+                    </div>
+                    <div class="herbal-card-footer">
+                        <span class="herbal-card-mini-date">20.02.25</span>
+                        <a href="#" class="herbal-card-button">
+                            Read more <span class="herbal-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="herbal-card">
+                    <div class="herbal-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="herbal-card-image">
+                        <img src="{% static '/images/acne.jpg' %}" alt="AI Skin Analysis">
+                    </div>
+                    <div class="herbal-card-body">
+                        <p class="herbal-card-date">15th March 2025</p>
+                        <h3 class="herbal-card-title">AI-Powered Skin Analysis & Herbal Recommendations</h3>
+                        <p class="herbal-card-text">Our advanced AI analyzes skin conditions with 95% accuracy and matches them with the most effective herbal remedies based on your unique skin profile.</p>
+                        <div class="herbal-tag-container">
+                            <span class="herbal-tag"><i class="fas fa-robot"></i> AI Technology</span>
+                            <span class="herbal-tag"><i class="fas fa-leaf"></i> Natural Remedies</span>
+                            <span class="herbal-tag"><i class="fas fa-user-md"></i> Personalized Care</span>
+                        </div>
+                    </div>
+                    <div class="herbal-card-footer">
+                        <span class="herbal-card-mini-date">15.03.25</span>
+                        <a href="#" class="herbal-card-button">
+                            Read more <span class="herbal-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="herbal-card">
+                    <div class="herbal-icon">
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <div class="herbal-card-image">
+                        <img src="{% static '/images/acne.jpg' %}" alt="Herbal Ingredients">
+                    </div>
+                    <div class="herbal-card-body">
+                        <p class="herbal-card-date">3rd April 2025</p>
+                        <h3 class="herbal-card-title">Science-Backed Herbal Formulations for Skin Health</h3>
+                        <p class="herbal-card-text">Explore research-backed herbs in our formulations: Turmeric for inflammation, Aloe Vera for healing, Tea Tree for acne, and Neem for antibacterial protection.</p>
+                        <div class="herbal-tag-container">
+                            <span class="herbal-tag"><i class="fas fa-flask"></i> Herbal Science</span>
+                            <span class="herbal-tag"><i class="fas fa-leaf"></i> Ingredients</span>
+                            <span class="herbal-tag"><i class="fas fa-heart"></i> Skin Healing</span>
+                        </div>
+                    </div>
+                    <div class="herbal-card-footer">
+                        <span class="herbal-card-mini-date">03.04.25</span>
+                        <a href="#" class="herbal-card-button">
+                            Read more <span class="herbal-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+    <!-- Articles -->          
+     <!-- <section id="articles" class="section">
+          <div class="container">
+          <div class="section-title">
+               <h4>Latest Posts</h4>
+               <h2>AI-Powered Insights</h2>
+          </div>
+     
+          <div class="row">
+               Article 1
+               <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="menu-thumb">
+                         <div class="articles-content">
+                              <span class="category">CYBERSECURITY</span>
+                              <h3>AI & Threat Detection</h3>
+                              <div class="article-meta">
+                              <span>Clow Center!</span>
+                              <span>April 25</span>
+                              </div>
+                              <p>Next-gen AI algorithms for real-time security monitoring.</p>
+                              <a href="art.html" class="section-btn">READ MORE</a>
+                         </div>
+                    </div>
+               </div>
+     
+               Article 2
+               <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="menu-thumb">
+                         <div class="articles-content">
+                              <span class="category">INNOVATION</span>
+                              <h3>AI in Healthcare</h3>
+                              <div class="article-meta">
+                              <span>Clow Center!</span>
+                              <span>April 26</span>
+                              </div>
+                              <p>Revolutionizing patient care through diagnostic AI.</p>
+                              <a href="#" class="section-btn">READ MORE</a>
+                         </div>
+                    </div>
+               </div>
+     
+               Article 3
+               <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="menu-thumb">
+                         <div class="articles-content">
+                              <span class="category">TECH BREAKTHROUGHS</span>
+                              <h3>Quantum Computing</h3>
+                              <div class="article-meta">
+                              <span>Clow Center!</span>
+                              <span>April 27</span>
+                              </div>
+                              <p>Bridging AI and quantum processing power.</p>
+                              <a href="#" class="section-btn">READ MORE</a>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>  -->
+
+     
+
+<!-- ARTICLES SECTION -->
+
+
+
+
+<!-- ARTICLES SECTION -->
+<section id="articles" class="articles-section" style="padding: 100px 0; background-color: #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="wow fadeIn" data-wow-delay="0.4s" style="color: #5a8f5a;">Natural Skin Solutions</h2>
+                <p class="wow fadeIn" data-wow-delay="0.6s" style="margin-bottom: 40px;">Harnessing the power of nature for healthy, radiant skin</p>
+            </div>
+        </div>
+
+        <!-- ARTICLES FILTER -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="articles-filter text-center wow fadeIn" data-wow-delay="0.8s">
+                    <button class="filter-btn active" data-filter="all">All Articles</button>
+                    <button class="filter-btn" data-filter="remedies">Remedies (10)</button>
+                    <button class="filter-btn" data-filter="prevention">Prevention (8)</button>
+                    <button class="filter-btn" data-filter="ingredients">Ingredients (12)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLES GRID -->
+        <div class="row articles-grid">
+            <!-- REMEDIES ARTICLES (10 cards) -->
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/acne-remedy.jpg' %}" class="img-responsive" alt="Acne Remedies">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'natural-acne-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Natural Acne Remedies</h3>
+                        <p>Discover kitchen ingredients that combat acne effectively without harsh chemicals.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> May 15, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/eczema-remedy.jpg' %}" class="img-responsive" alt="Eczema Remedies">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'natural-eczema-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Eczema Relief Naturally</h3>
+                        <p>Soothing solutions for eczema using gentle, natural ingredients.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 6 min read</span>
+                            <span><i class="fa fa-calendar"></i> May 22, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/dark-circles.jpg' %}" class="img-responsive" alt="Dark Circles">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'dark-circle-solutions' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Dark Circle Solutions</h3>
+                        <p>Natural ways to reduce dark circles and puffiness around your eyes.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> May 29, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/dry-skin-remedy.jpg' %}" class="img-responsive" alt="Dry Skin">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'dry-skin-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Dry Skin Remedies</h3>
+                        <p>Hydrate and nourish your skin with these natural moisturizing solutions.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 4 min read</span>
+                            <span><i class="fa fa-calendar"></i> June 5, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/rosacea-remedy.jpg' %}" class="img-responsive" alt="Rosacea">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'rosacea-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Rosacea Relief</h3>
+                        <p>Calm redness and irritation with these gentle natural treatments.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 7 min read</span>
+                            <span><i class="fa fa-calendar"></i> June 12, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/sunburn-remedy.jpg' %}" class="img-responsive" alt="Sunburn">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'sunburn-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Sunburn Soothers</h3>
+                        <p>Cool and heal sun-damaged skin with these natural remedies.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> June 19, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/blackhead-remedy.jpg' %}" class="img-responsive" alt="Blackheads">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'blackhead-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Blackhead Removal</h3>
+                        <p>Gentle, effective ways to clear blackheads without irritation.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 6 min read</span>
+                            <span><i class="fa fa-calendar"></i> June 26, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/psoriasis-remedy.jpg' %}" class="img-responsive" alt="Psoriasis">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'psoriasis-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Psoriasis Solutions</h3>
+                        <p>Natural approaches to manage psoriasis symptoms and flare-ups.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 8 min read</span>
+                            <span><i class="fa fa-calendar"></i> July 3, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/aging-remedy.jpg' %}" class="img-responsive" alt="Aging">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'anti-aging-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Anti-Aging Remedies</h3>
+                        <p>Natural solutions to reduce wrinkles and maintain youthful skin.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 7 min read</span>
+                            <span><i class="fa fa-calendar"></i> July 10, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="remedies">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/oily-skin-remedy.jpg' %}" class="img-responsive" alt="Oily Skin">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'oily-skin-remedies' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Oily Skin Solutions</h3>
+                        <p>Balance oil production naturally without stripping your skin.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> July 17, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PREVENTION ARTICLES (8 cards) -->
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="prevention">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/sun-protection.jpg' %}" class="img-responsive" alt="Sun Protection">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'sun-protection-naturally' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Sun Protection Naturally</h3>
+                        <p>Learn how to protect your skin from sun damage using natural ingredients.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 6 min read</span>
+                            <span><i class="fa fa-calendar"></i> July 24, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="prevention">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/premature-aging.jpg' %}" class="img-responsive" alt="Premature Aging">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'prevent-premature-aging' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Prevent Premature Aging</h3>
+                        <p>Daily habits to keep your skin looking youthful longer.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 8 min read</span>
+                            <span><i class="fa fa-calendar"></i> July 31, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="prevention">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/acne-prevention.jpg' %}" class="img-responsive" alt="Acne Prevention">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'acne-prevention-tips' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Acne Prevention Tips</h3>
+                        <p>Stop breakouts before they start with these natural strategies.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> August 7, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="prevention">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/hyperpigmentation-prevention.jpg' %}" class="img-responsive" alt="Hyperpigmentation">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'prevent-hyperpigmentation' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Prevent Hyperpigmentation</h3>
+                        <p>Keep your skin tone even and prevent dark spots naturally.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 7 min read</span>
+                            <span><i class="fa fa-calendar"></i> August 14, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="prevention">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/dryness-prevention.jpg' %}" class="img-responsive" alt="Dryness">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'prevent-dry-skin' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Prevent Dry Skin</h3>
+                        <p>Maintain your skin's moisture barrier with these natural methods.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> August 21, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="prevention">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/rosacea-prevention.jpg' %}" class="img-responsive" alt="Rosacea">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'prevent-rosacea-flareups' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Prevent Rosacea Flare-ups</h3>
+                        <p>Identify and avoid triggers to keep rosacea under control.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 6 min read</span>
+                            <span><i class="fa fa-calendar"></i> August 28, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="prevention">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/sensitivity-prevention.jpg' %}" class="img-responsive" alt="Sensitivity">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'prevent-skin-sensitivity' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Prevent Skin Sensitivity</h3>
+                        <p>Strengthen your skin barrier to reduce reactions and irritation.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> September 4, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="prevention">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/pollution-protection.jpg' %}" class="img-responsive" alt="Pollution">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'protect-from-pollution' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Protect From Pollution</h3>
+                        <p>Shield your skin from environmental damage with natural solutions.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 6 min read</span>
+                            <span><i class="fa fa-calendar"></i> September 11, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INGREDIENTS ARTICLES (12 cards) -->
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/aloe-vera.jpg' %}" class="img-responsive" alt="Aloe Vera">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'aloe-vera-benefits' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Aloe Vera Benefits</h3>
+                        <p>The complete guide to using aloe vera for skin health and healing.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 6 min read</span>
+                            <span><i class="fa fa-calendar"></i> September 18, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/turmeric.jpg' %}" class="img-responsive" alt="Turmeric">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'turmeric-for-skin' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Turmeric for Skin</h3>
+                        <p>How to use turmeric for glowing skin and treating various skin conditions.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> September 25, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/honey.jpg' %}" class="img-responsive" alt="Honey">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'honey-skin-benefits' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Honey Skin Benefits</h3>
+                        <p>Discover why honey is nature's perfect skincare ingredient.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 4 min read</span>
+                            <span><i class="fa fa-calendar"></i> October 2, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/tea-tree.jpg' %}" class="img-responsive" alt="Tea Tree">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'tea-tree-oil' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Tea Tree Oil Power</h3>
+                        <p>The antibacterial and healing properties of tea tree oil for skin.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> October 9, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/coconut-oil.jpg' %}" class="img-responsive" alt="Coconut Oil">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'coconut-oil-skin' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Coconut Oil for Skin</h3>
+                        <p>How to properly use coconut oil for maximum skin benefits.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 4 min read</span>
+                            <span><i class="fa fa-calendar"></i> October 16, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/rosehip-oil.jpg' %}" class="img-responsive" alt="Rosehip Oil">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'rosehip-oil-benefits' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Rosehip Oil Benefits</h3>
+                        <p>The anti-aging and scar-fading properties of rosehip oil.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> October 23, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/jojoba-oil.jpg' %}" class="img-responsive" alt="Jojoba Oil">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'jojoba-oil-skin' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Jojoba Oil Magic</h3>
+                        <p>Why jojoba oil is perfect for all skin types and how to use it.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 4 min read</span>
+                            <span><i class="fa fa-calendar"></i> October 30, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/shea-butter.jpg' %}" class="img-responsive" alt="Shea Butter">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'shea-butter-benefits' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Shea Butter Benefits</h3>
+                        <p>The ultimate moisturizer for dry, sensitive, and mature skin.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> November 6, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/green-tea.jpg' %}" class="img-responsive" alt="Green Tea">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'green-tea-skin' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Green Tea for Skin</h3>
+                        <p>Antioxidant-rich green tea solutions for inflammation and aging.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 4 min read</span>
+                            <span><i class="fa fa-calendar"></i> November 13, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/oatmeal.jpg' %}" class="img-responsive" alt="Oatmeal">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'oatmeal-skin-benefits' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Oatmeal Skin Benefits</h3>
+                        <p>Soothing and healing properties of colloidal oatmeal.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> November 20, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.5s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/niacinamide.jpg' %}" class="img-responsive" alt="Niacinamide">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'niacinamide-benefits' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Niacinamide Benefits</h3>
+                        <p>The science behind this powerhouse ingredient for all skin concerns.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 6 min read</span>
+                            <span><i class="fa fa-calendar"></i> November 27, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s" data-category="ingredients">
+                <div class="article-item">
+                    <div class="article-img">
+                        <img src="{% static 'images/hyaluronic-acid.jpg' %}" class="img-responsive" alt="Hyaluronic Acid">
+                        <div class="article-overlay">
+                            <a href="{% url 'predictor:article_detail' 'hyaluronic-acid' %}" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="article-info">
+                        <h3>Hyaluronic Acid</h3>
+                        <p>Nature's moisture magnet for plump, hydrated skin.</p>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            <span><i class="fa fa-calendar"></i> December 4, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="row">
+            <div class="col-md-12 text-center wow fadeIn" data-wow-delay="1s">
+                <ul class="pagination">
+                    <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER SECTION -->
+<footer id="footer" style="background-color: #333; color: #fff; padding: 60px 0 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="footer-info">
+                    <div class="section-title">
+                        <h2 style="color: #fff;">Glow Genesis</h2>
+                    </div>
+                    <p>Your trusted source for natural skincare solutions and organic remedies for healthy, radiant skin.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="footer-info">
+                    <div class="section-title">
+                        <h2 style="color: #fff;">Contact Info</h2>
+                    </div>
+                    <address>
+                        <p><i class="fa fa-map-marker"></i> 123 Green Valley, Organic City</p>
+                        <p><i class="fa fa-phone"></i> <a href="tel:010-020-0340">010-020-0340</a></p>
+                        <p><i class="fa fa-envelope-o"></i> <a href="mailto:info@glowgenesis.com">info@glowgenesis.com</a></p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="footer-info newsletter-form">
+                    <div class="section-title">
+                        <h2 style="color: #fff;">Newsletter</h2>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <form action="#" method="get">
+                                <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required>
+                                <input type="submit" class="form-control" name="submit" id="form-submit" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/smoothscroll.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+<!-- ARTICLES FILTER SCRIPT -->
+<script>
+    $(document).ready(function(){
+        // Filter articles
+        $('.filter-btn').click(function(){
+            $('.filter-btn').removeClass('active');
+            $(this).addClass('active');
+            
+            var filterValue = $(this).attr('data-filter');
+            
+            if(filterValue == 'all') {
+                $('.articles-grid .col-md-4').show('1000');
+            } else {
+                $('.articles-grid .col-md-4').not('[data-category="'+filterValue+'"]').hide('1000');
+                $('.articles-grid .col-md-4[data-category="'+filterValue+'"]').show('1000');
+            }
+        });
+        
+        // Initialize wow.js
+        new WOW().init();
+    });
+</script>
+
+</body>
+</html>

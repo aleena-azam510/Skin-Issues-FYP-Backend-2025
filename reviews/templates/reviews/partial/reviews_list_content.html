@@ -1,0 +1,37 @@
+{% load static %}
+{% load review_filters %}
+
+{% comment %}
+    This partial template is designed to be fetched via AJAX
+    and will replace the content of '.reviews-scroll-container'.
+{% endcomment %}
+
+{% if reviews %}
+    {% for review in reviews %}
+        <div class="review-block mt-3">
+            <div class="stars">
+                {# Dynamic stars using create_star_list filter #}
+                {% for is_solid in review.rating|create_star_list %}
+                    {% if is_solid %}
+                        <i class="fa fa-star"></i>
+                    {% else %}
+                        <i class="fa fa-star-o"></i>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <p>"{{ review.review_text }}"</p>
+            <div class="reviewer-info">
+                <img src="{% if review.user.profile.avatar %}{{ review.user.profile.avatar.url }}{% else %}{% static 'images/default-avatar.png' %}{% endif %}" alt="{{ review.reviewer_name }}" class="reviewer-avatar">
+                <div>
+                    <strong>{{ review.reviewer_name }}</strong><br>
+                    {% comment %} You can uncomment this if you want to show user ID for logged-in users {% endcomment %}
+                    {% if review.user %}
+                       <small>User ID: {{ review.user.id }}</small>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p class="no-reviews-message">No reviews yet. Be the first to share your experience!</p>
+{% endif %}

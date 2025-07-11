@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="article-detail-section" style="padding: 80px 0;">
+    <div class="container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-md-8 col-md-offset-2">
+                <article class="article-detail">
+                    <!-- Article Header -->
+                    <header class="article-header text-center">
+                        <h1 class="article-title">{{ article.title }}</h1>
+                        
+                        <div class="article-meta">
+                            <span class="author">
+                                <i class="fa fa-user"></i> By {{ article.author.get_full_name }}
+                            </span>
+                            <span class="date">
+                                <i class="fa fa-calendar"></i> {{ article.published_date|date:"F j, Y" }}
+                            </span>
+                            <span class="reading-time">
+                                <i class="fa fa-clock-o"></i> {{ article.reading_time }} min read
+                            </span>
+                        </div>
+                        
+                        {% if article.featured_image %}
+                        <div class="featured-image">
+                            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" class="img-responsive">
+                        </div>
+                        {% endif %}
+                    </header>
+                    
+                    <!-- Article Content -->
+                    <div class="article-content">
+                        {{ article.content|safe }}
+                    </div>
+                    
+                    <!-- Article Footer -->
+                    <footer class="article-footer">
+                        <div class="article-tags">
+                            <span class="category-label" style="background-color: 
+                                {% if article.category == 'remedies' %}#5a8f5a
+                                {% elif article.category == 'prevention' %}#4a7ba8
+                                {% else %}#8f5a8f{% endif %};">
+                                {{ article.get_category_display }}
+                            </span>
+                        </div>
+                        
+                        <div class="share-buttons">
+                            <span>Share:</span>
+                            <a href="#" class="social-share facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-share twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-share pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </footer>
+                </article>
+                
+                <!-- Related Articles -->
+                <div class="related-articles">
+                    <h3>You Might Also Like</h3>
+                    <div class="row">
+                        {% for related in related_articles %}
+                        <div class="col-md-4">
+                            <div class="related-article-item">
+                                <a href="{% url 'article_detail' related.slug %}">
+                                    <img src="{{ related.featured_image.url }}" alt="{{ related.title }}">
+                                    <h4>{{ related.title }}</h4>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

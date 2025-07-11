@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Glow Genesis Organic Care{% endblock %}</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+     {% comment %} <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}"> {% endcomment %}
+     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+     <link href="{% static 'images/TabLogo.png' %}" rel="icon" type="image/x-icon"  sizes="256x256">
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/articles.css' %}">
+
+     {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> {% endcomment %}
+   
+     <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   
+    {% comment %} <link rel="stylesheet" href="{% static 'css/skin_gallery.css' %}"> {% endcomment %}
+    {% block extra_head %}{% endblock %} {# For page-specific CSS or meta tags - UNCOMMENTED THIS LINE! #}
+</head>
+<body>
+
+    <section class="preloader">
+        <div class="spinner">
+            <span class="spinner-rotate"></span>
+        </div>
+    </section>
+
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="{% url 'index_page' %}" class="navbar-brand" style="display: flex; align-items: center; gap: 8px;">
+                    <img src= "{% static 'images/logo_web-removebg-preview.png' %}" alt="Glow Genesis Logo" style="height: 180px;">
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-nav-first">
+                    <li><a href="{% url 'index_page' %}" class="smoothScroll">Home</a></li>
+                    <li><a href="{% url 'index_page' %}#about" class="smoothScroll">About</a></li> {# Link to specific section on index page #}
+                    <li><a href="{% url 'developer_team_page' %}" class="smoothScroll">Developer Team</a></li>
+                    <li><a href="{% url 'article_page' %}">Article</a></li> {# Removed target="_blank" unless always desired #}
+                    <li><a href="{% url 'index_page' %}#contact" class="smoothScroll">Contact</a></li> {# Link to specific section on index page #}
+                    {% comment %} <li><a href="{% url 'skin_conditions_list' %}" class="smoothScroll">Skin Conditions</a></li> {# Link to specific section on index page #} {% endcomment %}
+                    <li><a href="{% url 'index_page' %}#faqs" class="smoothScroll">FAQs</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'model_page' %}" class="section-btn">Skin-Diagnose</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Hello, {{ user.username }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                {# Add other user-specific links here if needed, e.g., Profile, Dashboard #}
+                                {# <li><a href="{% url 'profile_page' %}">Profile</a></li> #}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'auth_page' %}" class="section-btn">Login / Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    {% block content %}{% endblock %} {# This is where page-specific content will go #}
+
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/smoothscroll.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/script2.js' %}"></script>
+
+    {% comment %} {% block extra_js %}{% endblock %} {# For page-specific JavaScript #} {% endcomment %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+        const popupOverlay = document.getElementById('login-popup-overlay');
+        const loginButton = document.getElementById('popup-login-button');
+        const closeButton = document.getElementById('popup-close-button');
+
+        function showPopup() {
+                if (popupOverlay) {
+                    popupOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+        }
+
+        function hidePopup() {
+                if (popupOverlay) {
+                    popupOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    // --- ADD THIS LINE FOR REDIRECTION ---
+                    window.location.href = "{% url 'index_page' %}"; // Redirect to homepage
+                }
+        }
+
+        if (loginButton) {
+                loginButton.addEventListener('click', function() {
+                    window.location.href = '/auth/'; // Redirects to your login/signup page
+                });
+        }
+
+        if (closeButton) {
+                closeButton.addEventListener('click', hidePopup);
+        }
+
+        if (popupOverlay) {
+                popupOverlay.addEventListener('click', function(event) {
+                    if (event.target === popupOverlay) {
+                        hidePopup();
+                    }
+                });
+        }
+
+        // --- Trigger the popup based on Django's authentication status ---
+        const isAuthenticated = {{ is_authenticated|yesno:"true,false" }}; // Pass from Django context
+
+        if (!isAuthenticated) {
+                showPopup();
+        }
+    });
+        </script>
+
+    <script>
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const x = e.clientX - e.target.getBoundingClientRect().left;
+                const y = e.clientY - e.target.getBoundingClientRect().top;
+
+                const ripple = document.createElement('span');
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                ripple.classList.add('ripple-effect');
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+        intent="WELCOME"
+        chat-title="Glow.Genie"
+        agent-id="44aa47e8-b37c-4409-ad9a-60acba45b803"
+        language-code="en">
+    </df-messenger>
+
+</body>
+</html>
