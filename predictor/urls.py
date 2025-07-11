@@ -23,9 +23,9 @@ urlpatterns = [
 
         # path('', views.home, name='home'),  # For showing the predict page
          # Path to render the predict HTML page
-        path('predict/', views.predict_page_view, name='predict_page'), 
+        # path('predict/', views.predict_page_view, name='predict_page'), 
         
-        path('api/predict/', views.predict_view, name='predict_api'),  # Predict API
+        # path('api/predict/', views.predict_view, name='predict_api'),  # Predict API
         path('capture/', views.capture, name='capture'),  
         # path('skin-conditions/<slug:condition_slug>/', views.skin_condition_detail_view, name='skin_condition_detail'),
 
